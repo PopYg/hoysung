@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+//서비스 > a/s센터
+#contentsWrap.as_center {
+    width:1180px; margin:0 auto;
+    .as_tit {
+        padding:60px 0 60px 400px; color:$white; background:url(../../images/service/as_icon.jpg) 200px 50% no-repeat $violet;
+        p {font-size:28px;}
+        strong {font-size:35px; padding:0 0 0 25px;}
+        .operating_time {
+            font-size:18px; padding:25px 0 0;
+            @extend %clearfix;
+            dl {
+                float:left; padding:0 0 0 30px; position:relative;
+                @extend %clearfix;
+                &:before {width:1px; height:15px; display:block; content:""; position:absolute; background-color:#5633a0; left:15px; top:2px;}
+                &:first-child {
+                    padding:0;
+                    &:before {display:none;}
+                }
+            }
+            dt {float:left; color:#c3b9d9;}
+            dd {float:left; padding:0 0 0 10px;}
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
