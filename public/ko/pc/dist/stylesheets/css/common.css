@@ -154,11 +154,9 @@ table { width: 100%; text-align: left; border-collapse: collapse; border-spacing
 /* Input - color setting */
 /* Button - color setting */
 /** BASE SETTING */
-#header .header_wrap:after, #header .header_util:after, #header .header_util ol:after, #header .header_util ol a:after, #footer .footer_info .f_link:after, #contentsWrap.way .comment_box:after, #contentsWrap.way .mission .txt_wrap .txt_box:after, #contentsWrap.way .core .core_wrap .core_box:after, #contentsWrap.news_list .news_search fieldset:after, #contentsWrap.news_list .news_search fieldset .search_wrap:after, #contentsWrap.news_list .list_wrap a:after, #contentsWrap.news_view .view_tit:after, #contentsWrap.news_view .board_navigator:after, #contentsWrap.as_center .as_tit .operating_time:after, #contentsWrap.as_center .as_tit .operating_time dl:after, #subLocation .location_list:after { content: " "; display: block; clear: both; }
+#header .header_wrap:after, #header .header_util:after, #header .header_util ol:after, #header .header_util ol a:after, #footer .footer_info .f_link:after, #contentsWrap.way .comment_box:after, #contentsWrap.way .mission .txt_wrap .txt_box:after, #contentsWrap.way .core .core_wrap .core_box:after, #contentsWrap.news_list .news_search fieldset:after, #contentsWrap.news_list .news_search fieldset .search_wrap:after, #contentsWrap.news_list .list_wrap a:after, #contentsWrap.news_view .view_tit:after, #contentsWrap.news_view .board_navigator:after, #contentsWrap.as_center .as_tit .operating_time:after, #contentsWrap.as_center .as_tit .operating_time dl:after, #subLocation .location_list:after, #writeForm .tit_wrap:after, #writeForm .input_wrap ol:after, #writeForm .radio_wrap:after, #writeForm .input_file_upload .file_btn_wrap:after { content: " "; display: block; clear: both; }
 
 body { -webkit-backface-visibility: hidden; }
-
-fieldset, img { border: 0 none; }
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button { padding: 0; font-family: Roboto, "Noto Sans KR", "Apple SD Gothic Neo", AppleGothic, "돋움", Dotum, Arial, Helvetica, sans-serif; outline: none; }
 
@@ -646,6 +644,76 @@ caption { width: 1px; height: 1px; overflow: hidden; margin: -1px; }
 #subContents #contentsWrap h4.sub_tit2 { font-size: 60px; font-weight: 300; padding: 0 0 0 140px; line-height: 90px; margin: -15px 0 0; }
 
 #subContents #contentsWrap h4.sub_tit2 span { font-size: 75px; font-family: "Roboto Slab", "Noto Sans KR", Arial, Apple SD Gothic Neo, sans-serif; text-decoration: underline; }
+
+#writeForm section { padding: 80px 0 0; }
+
+#writeForm .tit_wrap h5 { float: left; font-size: 28px; font-weight: 700; }
+
+#writeForm .tit_wrap p { float: right; font-size: 15px; font-family: "Noto Sans KR", Arial, Apple SD Gothic Neo, sans-serif; position: relative; }
+
+#writeForm .tit_wrap p:before { content: "*"; display: block; color: #00b2ca; position: absolute; font-size: 28px; left: -17px; }
+
+#writeForm .input_wrap { border-top: 2px solid #000; margin: 25px 0 0; font-size: 18px; }
+
+#writeForm .input_wrap li { width: 580px; padding: 55px 0 0; }
+
+#writeForm .input_wrap li:nth-of-type(odd) { float: left; }
+
+#writeForm .input_wrap li:nth-of-type(even) { float: right; }
+
+#writeForm .input_wrap li > label, #writeForm .input_wrap li .tit { font-size: 18px; }
+
+#writeForm .input_wrap li > label strong, #writeForm .input_wrap li .tit strong { color: #00b2ca; font-family: "Noto Sans KR", Arial, Apple SD Gothic Neo, sans-serif; vertical-align: top; }
+
+#writeForm .input_wrap li input[type=text] { width: 100%; display: block; margin: 25px 0 0; border-bottom: 1px solid #dbdbdb; padding: 14px 0; font-size: 18px; }
+
+#writeForm .input_wrap li input[type=text]::-webkit-input-placeholder { /* Chrome/Opera/Safari */ color: #aaa; line-height: 18px; font-size: 18px; }
+
+#writeForm .input_wrap li input[type=text]::-moz-placeholder { /* Firefox 19+ */ color: #aaa; line-height: 18px; font-size: 18px; }
+
+#writeForm .input_wrap li input[type=text]:-ms-input-placeholder { /* IE 10+ */ color: #aaa; line-height: 18px; font-size: 18px; }
+
+#writeForm .input_wrap li input[type=text]:-moz-placeholder { /* Firefox 18- */ color: #aaa; line-height: 18px; font-size: 18px; }
+
+#writeForm .input_wrap li textarea { width: 100%; height: 150px; margin: 50px 0 0; display: block; border-bottom: 1px solid #dbdbdb; padding: 0; font-size: 18px; line-height: 26px; resize: none; }
+
+#writeForm .input_wrap li textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */ color: #aaa; line-height: 18px; font-size: 18px; }
+
+#writeForm .input_wrap li textarea::-moz-placeholder { /* Firefox 19+ */ color: #aaa; line-height: 18px; font-size: 18px; }
+
+#writeForm .input_wrap li textarea:-ms-input-placeholder { /* IE 10+ */ color: #aaa; line-height: 18px; font-size: 18px; }
+
+#writeForm .input_wrap li textarea:-moz-placeholder { /* Firefox 18- */ color: #aaa; line-height: 18px; font-size: 18px; }
+
+#writeForm .radio_wrap { padding: 38px 0 0; }
+
+#writeForm .radio_wrap div { float: left; position: relative; margin: 0 0 0 30px; }
+
+#writeForm .radio_wrap div:first-child { margin: 0; }
+
+#writeForm .radio_wrap div input[type=radio] { position: absolute; top: 5px; left: 5px; }
+
+#writeForm .radio_wrap div input[type=radio]:checked ~ label:before { background-color: #2e008b; }
+
+#writeForm .radio_wrap div label { padding: 0 0 0 38px; position: relative; line-height: 26px; font-size: 18px; display: inline-block; }
+
+#writeForm .radio_wrap div label:before, #writeForm .radio_wrap div label:after { position: absolute; display: block; content: ""; -webkit-border-radius: 100%; -moz-border-radius: 100%; border-radius: 100%; }
+
+#writeForm .radio_wrap div label:before { width: 26px; height: 26px; background-color: #dbdbdb; left: 0; top: 0; -webkit-transition: background-color 0.2s ease; -moz-transition: background-color 0.2s ease; -o-transition: background-color 0.2s ease; -ms-transition: background-color 0.2s ease; }
+
+#writeForm .radio_wrap div label:after { width: 10px; height: 10px; background-color: #fff; top: 8px; left: 8px; }
+
+#writeForm .input_file_upload .file_btn_wrap input[type=text] { width: 1036px; float: left; }
+
+#writeForm .input_file_upload .file_btn_wrap button { width: 124px; height: 56px; float: right; background-color: #333; color: #fff; margin: 20px 0 0; -webkit-transition: background-color 0.2s ease; -moz-transition: background-color 0.2s ease; -o-transition: background-color 0.2s ease; -ms-transition: background-color 0.2s ease; }
+
+#writeForm .input_file_upload .file_btn_wrap button:hover, #writeForm .input_file_upload .file_btn_wrap button:focus { background-color: #2e008b; }
+
+#writeForm .input_file_upload .upload_caution { padding: 8px 0 0; font-size: 15px; color: #888; line-height: 18px; }
+
+#writeForm .input_file_upload .upload_caution p { margin: 12px 0 0; position: relative; padding: 0 0 0 23px; }
+
+#writeForm .input_file_upload .upload_caution p:before { width: 18px; height: 18px; display: block; content: ""; background: url(../../images/common/caution_icon.gif) 0 0 no-repeat; position: absolute; left: 0; top: 0; }
 
 #modalPopup { width: 100%; height: 100%; position: fixed; background-color: rgba(0, 0, 0, 0.4); z-index: 150; overflow-y: scroll; top: 0; left: 0; display: none; opacity: 0; filter: alpha(opacity=0); }
 

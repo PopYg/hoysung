@@ -521,7 +521,7 @@ function scrollEvent(){
 
     var $jsScrSec = $(".js-scr-sec"); // js-scr-sec - 패럴럭스 효과 시작 박스 / 하위 js-scr-box 와 셋트
     var scrInnerStep = []; // 각 페이지의 js-scr-sec 위치 저장
-    function scrollEvent() {
+    function pallContents() {
         $window.scroll(function () {
             scrollMotion(winSc);
         });
@@ -546,7 +546,7 @@ function scrollEvent(){
         }
         scrollMotion(winSc);
     }
-    scrollEvent();
+    pallContents();
 }
 
 
