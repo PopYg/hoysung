@@ -154,7 +154,7 @@ table { width: 100%; text-align: left; border-collapse: collapse; border-spacing
 /* Input - color setting */
 /* Button - color setting */
 /** BASE SETTING */
-#header .header_wrap:after, #header .header_util:after, #header .header_util ol:after, #header .header_util ol a:after, #footer .footer_info .f_link:after, #contentsWrap.way .comment_box:after, #contentsWrap.way .mission .txt_wrap .txt_box:after, #contentsWrap.way .core .core_wrap .core_box:after, #contentsWrap.news_list .news_search fieldset:after, #contentsWrap.news_list .news_search fieldset .search_wrap:after, #contentsWrap.news_list .list_wrap a:after, #contentsWrap.news_view .view_tit:after, #contentsWrap.news_view .board_navigator:after, #contentsWrap.as_center .as_tit .operating_time:after, #contentsWrap.as_center .as_tit .operating_time dl:after, #subLocation .location_list:after, #writeForm .tit_wrap:after, #writeForm .input_wrap ol:after, #writeForm .radio_wrap:after, #writeForm .input_file_upload .file_btn_wrap:after { content: " "; display: block; clear: both; }
+#header .header_wrap:after, #header .header_util:after, #header .header_util ol:after, #header .header_util ol a:after, #footer .footer_info .f_link:after, #contentsWrap.way .comment_box:after, #contentsWrap.way .mission .txt_wrap .txt_box:after, #contentsWrap.way .core .core_wrap .core_box:after, #contentsWrap.news_list .news_search fieldset:after, #contentsWrap.news_list .news_search fieldset .search_wrap:after, #contentsWrap.news_list .list_wrap a:after, #contentsWrap.news_view .view_tit:after, #contentsWrap.news_view .board_navigator:after, #contentsWrap.as_center .as_tit .operating_time:after, #contentsWrap.as_center .as_tit .operating_time dl:after, #subLocation .location_list:after, #writeForm .tit_wrap:after, #writeForm .input_wrap ol:after, #writeForm .radio_wrap:after, #writeForm .input_file_upload .file_btn_wrap:after, #writeForm .agree_wrap ol li:after { content: " "; display: block; clear: both; }
 
 body { -webkit-backface-visibility: hidden; }
 
@@ -714,6 +714,20 @@ caption { width: 1px; height: 1px; overflow: hidden; margin: -1px; }
 #writeForm .input_file_upload .upload_caution p { margin: 12px 0 0; position: relative; padding: 0 0 0 23px; }
 
 #writeForm .input_file_upload .upload_caution p:before { width: 18px; height: 18px; display: block; content: ""; background: url(../../images/common/caution_icon.gif) 0 0 no-repeat; position: absolute; left: 0; top: 0; }
+
+#writeForm .agree_wrap textarea { width: 100%; height: 380px; border: 1px solid #dbdbdb; border-top: 2px solid #000; line-height: 34px; font-size: 18px; resize: none; margin: 25px 0 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+#writeForm .agree_wrap ol li { padding: 24px 0; border-bottom: 1px solid #dbdbdb; }
+
+#writeForm .agree_wrap ol p { float: left; font-size: 18px; line-height: 26px; }
+
+#writeForm .agree_wrap ol .radio_wrap { padding: 0; float: right; }
+
+#writeForm .submit_wrap { text-align: center; padding: 60px 0 0; }
+
+#writeForm .submit_wrap input[type=submit] { padding: 25px 50px; background-color: #2e008b; color: #fff; display: inline-block; cursor: pointer; font-size: 22px; -webkit-border-radius: 50px; -moz-border-radius: 50px; border-radius: 50px; -webkit-transition: background-color 0.2s ease; -moz-transition: background-color 0.2s ease; -o-transition: background-color 0.2s ease; -ms-transition: background-color 0.2s ease; }
+
+#writeForm .submit_wrap input[type=submit]:hover, #writeForm .submit_wrap input[type=submit]:focus { background-color: #210064; }
 
 #modalPopup { width: 100%; height: 100%; position: fixed; background-color: rgba(0, 0, 0, 0.4); z-index: 150; overflow-y: scroll; top: 0; left: 0; display: none; opacity: 0; filter: alpha(opacity=0); }
 
