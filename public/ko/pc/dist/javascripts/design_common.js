@@ -488,8 +488,8 @@ function scrollEvent(){
             var offset = $(this).offset();
             var offsetTop = offset.top;
             var _this_h = $(this).innerHeight();
-            var bg_p = (winSc - offsetTop) / _this_h * 100;
-            $(this).css({"background-position-y":50 + -bg_p.toFixed(2) / 2 + "%"});
+            var _bg_p = (winSc - offsetTop) / _this_h * 100;
+            $(this).css({"background-position-y":-_bg_p.toFixed(2) / 2 + "%"});
         });
         //서브 비쥬얼 bg 패럴럭스
         $subVisual.css({"background-position-y":-170 + winSc / 2});
