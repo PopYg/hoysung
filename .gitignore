@@ -1,3 +1,2 @@
 # Project exclude paths
-/node_modules/
-/public/ko/pc/dist/
+/public/ko/pc/dist/*
