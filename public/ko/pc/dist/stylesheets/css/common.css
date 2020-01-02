@@ -154,7 +154,7 @@ table { width: 100%; text-align: left; border-collapse: collapse; border-spacing
 /* Input - color setting */
 /* Button - color setting */
 /** BASE SETTING */
-#header .header_wrap:after, #header .header_util:after, #header .header_util ol:after, #header .header_util ol a:after, #footer .footer_info .f_link:after, #contentsWrap.way .comment_box:after, #contentsWrap.way .mission .txt_wrap .txt_box:after, #contentsWrap.way .core .core_wrap .core_box:after, #contentsWrap.news_list .news_search fieldset:after, #contentsWrap.news_list .news_search fieldset .search_wrap:after, #contentsWrap.news_list .list_wrap a:after, #contentsWrap.news_view .view_tit:after, #contentsWrap.news_view .board_navigator:after, .promotion_tab ul:after, .ethical_green .green_contents .safety_wrap ol:after, .ethical_green .green_activity ol:after, .ethical_share .share_contents article:after, #contentsWrap.as_center .as_tit .operating_time:after, #contentsWrap.as_center .as_tit .operating_time dl:after, #subLocation .location_list:after, #writeForm .tit_wrap:after, #writeForm .input_wrap ol:after, #writeForm .radio_wrap:after, #writeForm .input_file_upload .file_btn_wrap:after, #writeForm .agree_wrap ol li:after { content: " "; display: block; clear: both; }
+#header .header_wrap:after, #header .header_util:after, #header .header_util ol:after, #header .header_util ol a:after, #footer .footer_info .f_link:after, #contentsWrap.way .comment_box:after, #contentsWrap.way .mission .txt_wrap .txt_box:after, #contentsWrap.way .core .core_wrap .core_box:after, #contentsWrap.news_list .news_search fieldset:after, #contentsWrap.news_list .news_search fieldset .search_wrap:after, #contentsWrap.news_list .list_wrap a:after, #contentsWrap.news_view .view_tit:after, #contentsWrap.news_view .board_navigator:after, .promotion_tab ul:after, .ethical_green .green_contents .safety_wrap ol:after, .ethical_green .green_activity ol:after, .ethical_share .share_contents article:after, .ethical_ethics .ethics_contents .ethics_tab:after, #contentsWrap.as_center .as_tit .operating_time:after, #contentsWrap.as_center .as_tit .operating_time dl:after, #subLocation .location_list:after, #writeForm .tit_wrap:after, #writeForm .input_wrap ol:after, #writeForm .radio_wrap:after, #writeForm .input_file_upload .file_btn_wrap:after, #writeForm .agree_wrap ol li:after { content: " "; display: block; clear: both; }
 
 body { -webkit-backface-visibility: hidden; }
 
@@ -485,7 +485,7 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 
 .promotion_tab li:first-child { margin: 0; }
 
-.promotion_tab a { width: 100%; height: 66px; line-height: 64px; color: #555; display: block; position: relative; border-width: 1px; border-style: solid; border-color: #dbdbdb; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: all 0.2s ease; -moz-transition: all 0.2s ease; -o-transition: all 0.2s ease; -ms-transition: all 0.2s ease; }
+.promotion_tab a { width: 100%; height: 66px; line-height: 64px; color: #555; display: block; position: relative; border-width: 1px; border-style: solid; border-color: #dbdbdb; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: border-color 0.2s ease; -moz-transition: border-color 0.2s ease; -o-transition: border-color 0.2s ease; -ms-transition: border-color 0.2s ease; }
 
 .promotion_tab a:hover, .promotion_tab a:focus, .promotion_tab a.active { border-color: #2e008b; z-index: 1; }
 
@@ -564,6 +564,52 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 .ethical_share .share_contents h1:after { width: 50px; height: 2px; display: block; content: ""; position: absolute; left: 0; top: 20px; background-color: #000; }
 
 .ethical_share .share_contents p { width: 840px; float: right; font-size: 18px; line-height: 32px; color: #555; }
+
+.ethical_ethics { width: 1180px; margin: 0 auto; }
+
+.ethical_ethics .ethics_contents .ethics_tab { padding: 50px 0 0; }
+
+.ethical_ethics .ethics_contents .ethics_tab li { float: left; margin: 0 0 0 30px; }
+
+.ethical_ethics .ethics_contents .ethics_tab li:first-child { margin: 0; }
+
+.ethical_ethics .ethics_contents .ethics_tab button { font-size: 18px; color: #555; font-weight: 700; -webkit-transition: color 0.3s ease; -moz-transition: color 0.3s ease; -o-transition: color 0.3s ease; -ms-transition: color 0.3s ease; }
+
+.ethical_ethics .ethics_contents .ethics_tab button:hover, .ethical_ethics .ethics_contents .ethics_tab button:focus, .ethical_ethics .ethics_contents .ethics_tab button.active { color: #2e008b; position: relative; }
+
+.ethical_ethics .ethics_contents .ethics_tab button:hover:after, .ethical_ethics .ethics_contents .ethics_tab button:focus:after, .ethical_ethics .ethics_contents .ethics_tab button.active:after { width: 100%; }
+
+.ethical_ethics .ethics_contents .ethics_tab button:after { width: 0; height: 2px; display: block; content: ""; background-color: #2e008b; position: absolute; bottom: -3px; -webkit-transition: width 0.3s ease; -moz-transition: width 0.3s ease; -o-transition: width 0.3s ease; -ms-transition: width 0.3s ease; }
+
+.ethical_ethics .ethics_wrap { height: 3307px; position: relative; }
+
+.ethical_ethics .ethics_wrap > div { position: absolute; top: 0; opacity: 0; filter: alpha(opacity=0); -webkit-transform: translate(0, 20px); -moz-transform: translate(0, 20px); -ms-transform: translate(0, 20px); -o-transform: translate(0, 20px); transform: translate(0, 20px); }
+
+.ethical_ethics .ethics_wrap > div:first-child { opacity: 1; filter: alpha(opacity=100); -webkit-transform: translate(0, 0); -moz-transform: translate(0, 0); -ms-transform: translate(0, 0); -o-transform: translate(0, 0); transform: translate(0, 0); }
+
+.ethical_ethics .program_wrap .ethical_tit { text-align: center; }
+
+.ethical_ethics .program_wrap .ethical_tit h5, .ethical_ethics .program_wrap .ethical_tit p { text-align: left; }
+
+.ethical_ethics .program_wrap .ethical_tit img { margin: 70px 0 0; }
+
+.ethical_ethics .program_wrap .history_txt { line-height: 32px; }
+
+.ethical_ethics .program_wrap .history_txt strong { font-size: 18px; }
+
+.ethical_ethics .program_wrap .history_txt span { display: block; padding: 0 0 0 99px; }
+
+.ethical_ethics .guidelines h6 { padding: 70px 0 0; }
+
+.ethical_ethics h6 { padding: 100px 0 0; font-size: 40px; }
+
+.ethical_ethics strong { font-size: 22px; font-weight: 300; display: block; padding: 50px 0 0; }
+
+.ethical_ethics dl { padding: 35px 0 0; font-size: 18px; }
+
+.ethical_ethics dl dt { color: #000; }
+
+.ethical_ethics dl dd { color: #555; padding: 10px 0 0 25px; line-height: 32px; }
 
 #contentsWrap.as_center { width: 1180px; margin: 0 auto; }
 

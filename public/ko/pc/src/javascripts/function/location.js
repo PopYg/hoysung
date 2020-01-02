@@ -1,6 +1,6 @@
 function locationJS(){
-    $subLocation.find("button").on("mouseenter focusin",function () {
-        event.preventDefault();
+    $subLocation.find("button").on("mouseenter focusin",function (e) {
+        e.preventDefault();
         var _this = $(this);
         var locationDepthH = _this.siblings(".under_depth").outerHeight();
         if(!_this.hasClass("active")){
