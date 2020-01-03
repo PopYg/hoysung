@@ -28,4 +28,5 @@ $window.load(function () {
     productsJS();
     promotionJS();
     serviceJS();
+    etcJS();
 });

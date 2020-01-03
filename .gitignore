@@ -1,2 +1,3 @@
 # Project exclude paths
-/public/ko/pc/dist/*
+/public/ko/pc/dist/
+/public/ko/pc/src/
