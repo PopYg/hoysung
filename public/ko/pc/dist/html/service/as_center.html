@@ -123,21 +123,14 @@
                     <h4 class="sub_tit">A&#47;S 센터</h4>
                 </div>
                 <div class="as_tit">
-                    <p>A&#47;S 센터 전화 문의 <strong>1544 &#45; 5580</strong></p>
-                    <div class="operating_time">
-                        <dl>
-                            <dt>운영시간</dt>
-                            <dd>09:00 &#126; 18:00</dd>
-                        </dl>
-                        <dl>
-                            <dt>점심시간</dt>
-                            <dd>12:00 &#126; 13:00</dd>
-                        </dl>
-                        <dl>
-                            <dt>휴무일</dt>
-                            <dd>주말&#44; 공휴일</dd>
-                        </dl>
-                    </div>
+                    <dl>
+                        <dt>플랜트용 펌프 문의</dt>
+                        <dd>055-279-7721</dd>
+                    </dl>
+                    <dl>
+                        <dt>건물 및 일반 산업용 펌프 문의 </dt>
+                        <dd>1544-5580</dd>
+                    </dl>
                 </div>
 
                 <!-- 입력 폼 -->
@@ -153,19 +146,19 @@
                                 <div class="input_wrap">
                                     <ol>
                                         <li>
-                                            <label for="as_01">신청인 <strong>&#42;</strong></label>
+                                            <label for="as_01" title="신청인 이름을 입력해주세요.">신청인 <strong>&#42;</strong></label>
                                             <input type="text" id="as_01">
                                         </li>
                                         <li>
-                                            <label for="as_02">회사명 <strong>&#42;</strong></label>
+                                            <label for="as_02" title="회사명을 입력해주세요.">회사명 <strong>&#42;</strong></label>
                                             <input type="text" id="as_02">
                                         </li>
                                         <li>
-                                            <label for="as_03">이메일 <strong>&#42;</strong></label>
-                                            <input type="text" id="as_03">
+                                            <label for="as_03" title="이메일을 입력해주세요.">이메일 <strong>&#42;</strong></label>
+                                            <input type="text" id="as_03" placeholder="입력하신 이메일로 답변이 전송되오니, 정확히 입력해주세요.">
                                         </li>
                                         <li>
-                                            <label for="as_04">연락처 <strong>&#42;</strong></label>
+                                            <label for="as_04" title="연락처를 입력해주세요.">연락처 <strong>&#42;</strong></label>
                                             <input type="text" id="as_04">
                                         </li>
                                     </ol>
@@ -180,7 +173,7 @@
                                     <h5>문의내용</h5>
                                     <p>표시는 필수 입력사항입니다&#46;</p>
                                 </div>
-                                <div class="input_wrap">
+                                <div class="input_wrap as_input_box01">
                                     <ol>
                                         <li>
                                             <p class="tit">제품구분</p>
@@ -191,24 +184,7 @@
                                                 </div>
                                                 <div>
                                                     <input type="radio" id="radio02" name="product_division">
-                                                    <label for="radio02">건물용</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <p class="tit">제품형태</p>
-                                            <div class="radio_wrap">
-                                                <div>
-                                                    <input type="radio" id="radio03" checked name="product_shape">
-                                                    <label for="radio03">Horizontal(수평)</label>
-                                                </div>
-                                                <div>
-                                                    <input type="radio" id="radio04" name="product_shape">
-                                                    <label for="radio04">Vertical(수직)</label>
-                                                </div>
-                                                <div>
-                                                    <input type="radio" id="radio05" name="product_shape">
-                                                    <label for="radio05">기타</label>
+                                                    <label for="radio02">건물 및 일반 산업용</label>
                                                 </div>
                                             </div>
                                         </li>
@@ -217,25 +193,37 @@
                                             <input type="text" id="as_07" placeholder="ex) 발전용, 석유화학용, 건물용 등">
                                         </li>
                                         <li>
-                                            <label for="as_08" title="현장명을 입력 해주세요.">현장명</label>
+                                            <label for="as_08" title="현장명을 입력 해주세요.">현장명 <strong>&#42;</strong></label>
                                             <input type="text" id="as_08" placeholder="현장명을 입력 해주세요.">
                                         </li>
                                         <li>
-                                            <label for="as_09" title="시리얼번호 입력 시 보다 빠른 업무 처리가 가능합니다.">시리얼번호</label>
+                                            <label for="as_09" title="시리얼번호 입력 시 보다 빠른 업무 처리가 가능합니다.">시리얼번호 <strong>&#42;</strong></label>
                                             <input type="text" id="as_09" placeholder="입력 시 보다 빠른 업무 처리가 가능합니다.">
                                         </li>
                                         <li>
-                                            <label for="as_10" title="모델명 입력 시 보다 빠른 업무 처리가 가능합니다.">모델명</label>
+                                            <label for="as_10" title="모델명 입력 시 보다 빠른 업무 처리가 가능합니다.">모델명 <strong>&#42;</strong></label>
                                             <input type="text" id="as_10" placeholder="입력 시 보다 빠른 업무 처리가 가능합니다.">
                                         </li>
                                         <li style="width:100%">
-                                            <label for="as_11" title="문의하시고자 하는 내용을 입력해주세요.">문의내용</label>
+                                            <label for="as_11" title="문의하시고자 하는 내용을 입력해주세요.">A/S 요청내용 <strong>&#42;</strong></label>
                                             <textarea name="" id="as_11" placeholder="문의하시고자 하는 내용을 입력해주세요."></textarea>
                                         </li>
                                         <li class="input_file_upload" style="width:100%">
-                                            <label for="as_12" title="사진이나 문서형식의 파일을 첨부해주세요">파일첨부</label>
+                                            <label for="as_12" title="명판 사진 파일을 첨부해주세요">명판 사진첨부 <strong>&#42;</strong></label>
                                             <div class="file_btn_wrap">
-                                                <input type="text" id="as_12" placeholder="사진이나 문서형식의 파일을 첨부해주세요" readonly>
+                                                <input type="text" id="as_12" placeholder="파일을 첨부해주세요." readonly>
+                                                <button type="button">파일선택</button>
+                                            </div>
+                                            <div class="upload_caution">
+                                                <p>첨부파일은 영문파일명으로 등록 바랍니다.</p>
+                                                <p>파일 최대용량은 50MB이하, 파일 형태는 이미지 및 문서 형식만 가능합니다.</p>
+                                            </div>
+                                        </li>
+
+                                        <li class="input_file_upload" style="width:100%">
+                                            <label for="as_12" title="사진이나 문서형식의 파일을 첨부해주세요">기타 파일첨부</label>
+                                            <div class="file_btn_wrap">
+                                                <input type="text" id="as_12" placeholder="파일을 첨부해주세요." readonly>
                                                 <button type="button">파일선택</button>
                                             </div>
                                             <div class="upload_caution">

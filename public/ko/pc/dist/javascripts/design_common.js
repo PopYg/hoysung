@@ -46,7 +46,6 @@ function etcJS(){
         _anchorTop.push($(this).offset().top - 70);
     });
 
-
     $termsTab.click(function () {
         var _this = $(this);
         var _index= _this.parent().index();

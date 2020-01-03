@@ -154,7 +154,7 @@ table { width: 100%; text-align: left; border-collapse: collapse; border-spacing
 /* Input - color setting */
 /* Button - color setting */
 /** BASE SETTING */
-#header .header_wrap:after, #header .header_util:after, #header .header_util ol:after, #header .header_util ol a:after, #footer .footer_info .f_link:after, #contentsWrap.way .comment_box:after, #contentsWrap.way .mission .txt_wrap .txt_box:after, #contentsWrap.way .core .core_wrap .core_box:after, #contentsWrap.util_terms .terms_tab ul:after, #contentsWrap.news_list .news_search fieldset:after, #contentsWrap.news_list .news_search fieldset .search_wrap:after, #contentsWrap.news_list .list_wrap a:after, #contentsWrap.news_view .view_tit:after, #contentsWrap.news_view .board_navigator:after, .promotion_tab ul:after, .ethical_green .green_contents .safety_wrap ol:after, .ethical_green .green_activity ol:after, .ethical_share .share_contents article:after, .ethical_ethics .ethics_contents .ethics_tab:after, #contentsWrap.as_center .as_tit .operating_time:after, #contentsWrap.as_center .as_tit .operating_time dl:after, #subLocation .location_list:after, #writeForm .tit_wrap:after, #writeForm .input_wrap ol:after, #writeForm .radio_wrap:after, #writeForm .input_file_upload .file_btn_wrap:after, #writeForm .agree_wrap ol li:after { content: " "; display: block; clear: both; }
+#header .header_wrap:after, #header .header_util:after, #header .header_util ol:after, #header .header_util ol a:after, #footer .footer_info .f_link:after, #contentsWrap.way .comment_box:after, #contentsWrap.way .mission .txt_wrap .txt_box:after, #contentsWrap.way .core .core_wrap .core_box:after, #contentsWrap.util_terms .terms_tab ul:after, #contentsWrap.news_list .news_search fieldset:after, #contentsWrap.news_list .news_search fieldset .search_wrap:after, #contentsWrap.news_list .list_wrap a:after, #contentsWrap.news_view .view_tit:after, #contentsWrap.news_view .board_navigator:after, .promotion_tab ul:after, .ethical_green .green_contents .safety_wrap ol:after, .ethical_green .green_activity ol:after, .ethical_share .share_contents article:after, .ethical_ethics .ethics_contents .ethics_tab:after, #contentsWrap.as_center .as_tit:after, #subLocation .location_list:after, #writeForm .tit_wrap:after, #writeForm .input_wrap ol:after, #writeForm .radio_wrap:after, #writeForm .input_file_upload .file_btn_wrap:after, #writeForm .agree_wrap ol li:after { content: " "; display: block; clear: both; }
 
 body { -webkit-backface-visibility: hidden; }
 
@@ -665,25 +665,21 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 
 #contentsWrap.as_center { width: 1180px; margin: 0 auto; }
 
-#contentsWrap.as_center .as_tit { padding: 60px 0 60px 400px; color: #fff; background: url(../../images/service/as_icon.jpg) 200px 50% no-repeat #2e008b; }
+#contentsWrap.as_center .as_tit { color: #fff; background-color: #2e008b; padding: 35px 0 35px 34px; }
 
-#contentsWrap.as_center .as_tit p { font-size: 28px; }
+#contentsWrap.as_center .as_tit dl { height: 110px; float: left; padding: 0 0 0 230px; border-left: 1px solid #5833a2; background-image: url(../../images/service/as_icon02.gif); -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -ms-background-position-x: 80px; background-position-x: 80px; -ms-background-position-y: 50%; background-position-y: 50%; background-repeat: no-repeat; }
 
-#contentsWrap.as_center .as_tit strong { font-size: 35px; padding: 0 0 0 25px; }
+#contentsWrap.as_center .as_tit dl:first-child { width: 548px; border-left: 0; background-image: url(../../images/service/as_icon01.gif); }
 
-#contentsWrap.as_center .as_tit .operating_time { font-size: 18px; padding: 25px 0 0; }
+#contentsWrap.as_center .as_tit dt { padding: 15px 0 0; font-size: 22px; }
 
-#contentsWrap.as_center .as_tit .operating_time dl { float: left; padding: 0 0 0 30px; position: relative; }
+#contentsWrap.as_center .as_tit dd { padding: 15px 0 0; font-size: 40px; }
 
-#contentsWrap.as_center .as_tit .operating_time dl:before { width: 1px; height: 15px; display: block; content: ""; position: absolute; background-color: #5633a0; left: 15px; top: 2px; }
+#contentsWrap.as_center .as_input_box01 li:nth-of-type(odd) { float: right; }
 
-#contentsWrap.as_center .as_tit .operating_time dl:first-child { padding: 0; }
+#contentsWrap.as_center .as_input_box01 li:nth-of-type(even) { float: left; }
 
-#contentsWrap.as_center .as_tit .operating_time dl:first-child:before { display: none; }
-
-#contentsWrap.as_center .as_tit .operating_time dt { float: left; color: #c3b9d9; }
-
-#contentsWrap.as_center .as_tit .operating_time dd { float: left; padding: 0 0 0 10px; }
+#contentsWrap.as_center .as_input_box01 li:first-child { width: 100%; float: left; }
 
 /*
   z-index 가이드
