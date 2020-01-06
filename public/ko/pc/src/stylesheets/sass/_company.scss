@@ -30,7 +30,7 @@
         }
     }
     .core {
-        background-color:#f4f2f9; padding:100px 0 120px;
+        background-color:$gray5; padding:100px 0 120px;
         .core_wrap {
             width:1180px; margin:0 auto;
             &.js-motion-end {
@@ -106,3 +106,74 @@
         }
     }
 }
+
+//회사소개 - 사업장 안내
+#contentsWrap.company_location {
+    .location_wrap {width:1180px; margin:0 auto;}
+    section {
+        padding:80px 0 0;
+        &:first-child {padding:0;}
+        h5 {font-size:28px;}
+        > ol {
+            border-top:2px solid $black; margin:20px 0 0;
+            > li {
+                height:170px; border-bottom:1px solid $gray4; padding:40px; background-color:$white; position:relative; overflow:hidden;
+                @include boxSizing;
+                @include transition(background-color, .3s);
+                &.active {
+                    background-color:#fafafa;
+                    p.name {color:$violet; font-weight:$bold;}
+                    .open_btn {background-color:$violet; background-image:url(../../images/common/map_icon_over.png); border-color:$violet; color:$white;}
+                }
+            }
+        }
+        p.name {
+            font-size:25px; color:$black;
+            @include transition(color, .3s);
+        }
+        p.location_txt {font-size:18px; color:$gray2; padding:20px 0 0;}
+        .tel_number {
+            padding:10px 0 0; color:$gray2;
+            @extend %clearfix;
+            li {
+                float:left; padding:0 0 0 25px; position:relative;
+                &:after {width:1px; height:15px; display:block; content:""; background-color:$gray4; position:absolute; top:1px; left:13px;}
+                &:first-child {
+                    padding:0;
+                    &:after {display:none;}
+                }
+            }
+        }
+        .open_btn {
+            width:122px; height:56px; display:block; font-size:18px; color:$gray2; background-image:url(../../images/common/map_icon.png); text-align:left; text-indent:58px; position:absolute;
+            top:58px; right:40px;
+            @include borderSet(1px, solid, $gray3);
+            @include backgroundSolt(30px, 50%);
+            @include transition;
+            &:hover,
+            &:focus {background-color:$violet; background-image:url(../../images/common/map_icon_over.png); border-color:$violet; color:$white;}
+        }
+        .map_wrap {height:400px; background:url(../../images/company/location_img.jpg) 0 0 no-repeat; margin:40px 0 0;}
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

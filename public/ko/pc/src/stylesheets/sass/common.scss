@@ -341,6 +341,27 @@ legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; hei
     }
 }
 
+//더보기 버튼
+.more_wrap {
+    text-align:center; margin:60px 0 0;
+    button {
+        display:inline-block; padding:50px 0 0; color:$black; position:relative;
+        @include transition(all, .4s);
+        &:before {
+            width:1px; height:30px; display:block; content:""; background-color:$black; position:absolute; top:0; left:50%;
+            @include transition(transform, .4s);
+        }
+        &:hover {
+            color:$violet;
+            @include translate(0, 10px);
+            &:before {
+                background-color:$violet;
+                @include translate(0, 10px);
+            }
+        }
+    }
+}
+
 //팝업 기본
 #modalPopup {
     width:100%; height:100%; position:fixed; background-color:rgba(0, 0, 0, 0.4); z-index:150; overflow-y:scroll; top:0; left:0; display:none;
