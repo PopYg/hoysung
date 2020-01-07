@@ -19,5 +19,13 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PopYg/hoysung.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PopYg/hoysung/issues"
+  },
+  "homepage": "https://github.com/PopYg/hoysung#readme",
   "description": ""
 }
