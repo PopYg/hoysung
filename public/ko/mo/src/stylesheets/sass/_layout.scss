@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 html, body { max-width:100%;}
-html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
+html.no_scroll {overflow:hidden;}
 .dimmed {
     width:100%; height:100%; position:fixed; z-index:100; background-color:#000; display:none; top:0;
     @include opacity(0);
@@ -15,123 +15,81 @@ html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
 
 /* 헤더 */
 #header {
-    width:100%; min-width:1320px; height:100px; position:absolute; top:0; left:0; z-index:100; overflow:hidden; padding:0 70px;
+    width:100%; height:60px; position:absolute; top:0; left:0; z-index:110; padding:0 25px;
     @include boxSizing;
     &:before {
-        width:100%; height:200px; display:block; content:""; position:absolute; top:-100px; z-index:-1; background-color:$white; right:90px;
+        width:100%; height:140px; display:block; content:""; position:absolute; top:-80px; z-index:-1; background-color:$white; right:-15px;
         border-bottom-right-radius:250px 150px; -webkit-border-bottom-right-radius:250px 150px; -moz-border-bottom-right-radius:250px 150px;
     }
-    .header_wrap {
-        min-width:1180px; position:relative;
-        @extend %clearfix;
-
-        @media screen and (max-width:#{1650px}) {
-            .gnb_wrap {position:relative; padding:0 255px 0 280px;}
-            .header_util {
-                ol {
-                    padding:0 20px 0 0;
-                    li {width:31px; padding:0 0 0 15px;}
-                }
-            }
-        }
-        @media screen and (max-width:#{1500px}) {
-            .gnb_wrap #gnb .depth_one li {margin:0 0 0 40px;}
-        }
-    }
+    .header_wrap {position:relative;}
     h1 {
-        float:left; text-indent:-9999px; padding:38px 0 0; position:relative; z-index:30;
-        a {width:280px; height:24px; display:block; background:url(../../images/layout/logo.jpg) 50% 50% no-repeat;}
-    }
-    .gnb_wrap {
-        position:relative; padding:0 385px 0 280px;
-        #gnb {
-            position:relative;
-            .depth_one {
-                width:100%; position:absolute; height:100px; text-align:center; font-size:18px; line-height:100px; font-family:$roboto;
-                ul {display:inline-block;}
-                li {
-                    float:left; margin:0 0 0 80px;
-                    &:first-child {margin:0;}
-                    &:hover a {
-                        color:$violet;
-                        &:after {
-                            @include opacity(1);
-                            @include translate(-50%, 0);
-                        }
-                    }
-                }
-                a {
-                    position:relative;
-                    @include transition(color, .2s);
-                    &:after {
-                        width:4px; height:4px; display:block; content:""; position:absolute; top:26px; left:50%; background-color:$violet;
-                        @include translate(-50%, -5px);
-                        @include borderRadius(100%);
-                        @include opacity(0);
-                        @include transition;
-                    }
-                    &:focus {
-                        color:$violet;
-                        &:after {
-                            @include opacity(1);
-                            @include translate(-50%, 0);
-                        }
-                    }
-                }
-            }
+        text-indent:-9999px; padding:22px 0 0 38px; position:relative;
+        a {
+            width:174px; height:15px; display:block; background-image:url(../../images/layout/logo.jpg);
+            @include backgroundSoltC;
         }
     }
-    /* 헤더 유틸 */
-    .header_util {
-        position:absolute; top:33px; right:0; line-height:34px; z-index:10;
+    #gnbBtn {
+        width:18px; height:16px; position:absolute; top:22px; left:0; z-index:30;
+        &:before,
+        &:after {width:18px; height:2px; display:block; content:""; position:absolute; background-color:$black;}
+        &:before {top:0;}
+        &:after {bottom:0;}
+        span {width:11px; height:2px; position:absolute; top:7px; left:0; text-indent:-9999px; display:block; background-color:$black;}
+    }
+    #gnb {width:80%; height:100vh; background-color:$white; position:absolute; z-index:20; top:0; left:0;}
+    .gnb_wrap {height:100%; padding:0 25px 0 0; overflow-y:scroll;}
+    .language_box {
+        padding:20px 0 0;
         @extend %clearfix;
         ol {
-            height:34px; float:left; font-size:15px; padding:0 40px 0 0; overflow:hidden;
+            line-height:21px; float:right; padding:0 0 0 20px; background:url(../../images/layout/util_icon02.gif) 0 50% no-repeat; -webkit-background-size:21px; background-size:21px;
             @extend %clearfix;
-            li {
-                width:auto; float:left; padding:0 0 0 30px; overflow:hidden;
-                &:nth-of-type(1) {
-                    padding:0;
-                    a {
-                        &:before {width:31px; background-image:url(../../images/layout/util_icon01.gif);}
-                        &:hover,
-                        &:focus {
-                            color:$violet;
-                            &:before {background-image:url(../../images/layout/util_icon01_on.gif);}
-                        }
-                    }
+        }
+        li {float:left; margin:0 0 0 15px;}
+        a {
+            &.active {color:$violet;}
+        }
+    }
+    nav {
+        padding:30px 0 60px;
+        ul.depth1 {
+            button {
+                width:100%; font-size:24px; position:relative; text-align:left; color:$black;
+                &:before,
+                &:after {
+                    width:16px; height:2px; display:block; content:""; background-color:$gray1; position:absolute; top:11px; right:0;
+                    @include transition;
                 }
-                &:nth-of-type(2) {
-                    a {
-                        &:before {width:28px; background-image:url(../../images/layout/util_icon02.gif);}
-                        &:hover,
-                        &:focus {
-                            color:$violet;
-                            &:before {background-image:url(../../images/layout/util_icon02_on.gif);}
-                        }
+                &:before {
+                    @include rotate(90);
+                }
+                &.active {
+                    color:$violet;
+                    &:before {
+                        background-color:$violet;
+                        @include rotate(0);
                     }
+                    &:after {background-color:$violet;}
                 }
             }
-            a {
-                @include transition(color, .2s);
-                @extend %clearfix;
-                &:before {
-                    height:28px; content:""; margin:3px 10px 0 0; float:left;
-                    @include backgroundSolt;
-                    @include transition(background-image, .2s);
-                }
-                span {float:left;}
+            > li {
+                height:24px; padding:40px 0 0; overflow:hidden;
+                &:first-child {padding:0;}
             }
         }
-        > a {
-            height:34px; display:block; float:left; font-size:13px; color:$white; background-color:$violet; padding:0 16px; position:relative; overflow:hidden;
-            @include borderRadius(34px);
-            @include transition(background-color, .5s);
-            &:hover,
-            &:focus {background-color:$deep;}
+        ul.depth2 {
+            font-size:18px; padding:20px 0 0;
+            li {
+                padding:20px 0 0;
+                &:first-child {padding:0;}
+            }
+            a {}
         }
     }
 }
+
+#gnbDimmed.dimmed {z-index:10;}
 
 //footer
 #footer {
@@ -164,5 +122,4 @@ html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
         .company_info {padding:30px 0 0;}
         .copyright {padding:15px 0 0;}
     }
-    #familySite {}
 }

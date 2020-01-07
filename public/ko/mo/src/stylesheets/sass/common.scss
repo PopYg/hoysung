@@ -43,23 +43,12 @@ caption { width:1px; height:1px; overflow:hidden; margin:-1px;}
     div {
         &:after,
         &:before {width:1px; height:100%; display:block; content:""; position:fixed; background-color:$gray1; z-index:1000; opacity:0.3;}
-        &.guide_70 {
-            @media screen and (max-width:#{1480px}) {
-                display:none;
-            }
-            &:before {left:70px;}
-            &:after {right:70px}
+        &.guide_50 {
+            &:before {left:25px;}
+            &:after {right:25px}
         }
         &.guide_center {
             &:before {left:50%;}
-        }
-        &.guide_1180 {
-            &:before {left:50%; margin:0 0 0 -590px;}
-            &:after {left:50%; margin:0 0 0 590px;}
-        }
-        &.guide_1320 {
-            &:before {left:50%; margin:0 0 0 -660px;}
-            &:after {left:50%; margin:0 0 0 660px;}
         }
     }
 }

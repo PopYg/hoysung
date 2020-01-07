@@ -29,48 +29,75 @@
     </ul>
 </div>
 <div class="guide_line">
-    <div class="guide_70"></div>
+    <div class="guide_50"></div>
     <div class="guide_center"></div>
-    <div class="guide_1320"></div>
-    <div class="guide_1180"></div>
 </div>
 <div id="wrap">
     <!--header-->
     <header id="header">
         <div class="header_wrap">
             <h1 id="logo"><a href="../main/main.html" title="main page">hoysung goodsprings</a></h1>
-            <button type="button" id="gnbBtn">gnb open/close</button>
-            <nav id="gnb">
+            <div id="gnb">
+                <button type="button" id="gnbBtn"><span>gnb open/close</span></button>
                 <div class="gnb_wrap">
                     <div class="language_box">
                         <ol>
-                            <li><a href="">Korean</a></li>
+                            <li><a href="" class="active">Korean</a></li>
                             <li><a href="">English</a></li>
                         </ol>
                     </div>
                     <nav>
-                        <h2>사이트 전체 메뉴</h2>
+                        <h2 class="hidden-txt">사이트 전체 메뉴</h2>
                         <ul class="depth1">
                             <li>
                                 <button type="button">Applications <i></i></button>
                                 <ul class="depth2">
                                     <li><a href="">Oil, gas and chemicals</a></li>
+                                    <li><a href="">Power</a></li>
                                     <li><a href="">Water</a></li>
-                                    <li><a href="">Power generation</a></li>
                                     <li><a href="">Buildings</a></li>
                                     <li><a href="">General Industry</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <button type="button">Research Areas <i></i></button>
+                                <button type="button">Products <i></i></button>
                                 <ul class="depth2">
-                                    <li><a href="">Research Infra</a></li>
+                                    <li><a href="">Between Bearings</a></li>
+                                    <li><a href="">Vertically suspended</a></li>
+                                    <li><a href="">Overhung</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <button type="button">Services <i></i></button>
+                                <ul class="depth2">
+                                    <li><a href="">A/S 센터 소개</a></li>
+                                    <li><a href="">AM 사업</a></li>
+                                    <li><a href="">펌프 에너지 절감 사업</a></li>
+                                    <li><a href="">펌프 아카데미</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <button type="button">Public Relations <i></i></button>
+                                <ul class="depth2">
+                                    <li><a href="">뉴스센터</a></li>
+                                    <li><a href="">홍보센터</a></li>
+                                    <li><a href="">지속가능경영</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <button type="button">About us <i></i></button>
+                                <ul class="depth2">
+                                    <li><a href="">회사개요</a></li>
+                                    <li><a href="">회사연혁</a></li>
+                                    <li><a href="">Hyosung Way</a></li>
+                                    <li><a href="">사업장안내</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </nav>
                 </div>
-            </nav>
+            </div>
+            <div id="gnbDimmed" class="dimmed"></div>
         </div>
     </header>
     <!--//header-->
@@ -188,8 +215,7 @@
         </div>
     </div>
     <!--//mainContainer-->
-<div id="gnbDimmed" class="dimmed"></div>
-    <!-- footer -->
+ <!-- footer -->
     <footer id="footer">
         <div class="footer_wrap">
             <div class="footer_info">
