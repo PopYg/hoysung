@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+//서비스 > a/s센터
+#contentsWrap.as_center {
+    width:1180px; margin:0 auto;
+    .as_tit {
+        color:$white; background-color:$violet; padding:35px 0 35px 34px;
+        @extend %clearfix;
+        dl {
+            height:110px; float:left; padding:0 0 0 230px; border-left:1px solid #5833a2; background-image:url(../../images/service/as_icon02.gif);
+            @include boxSizing;
+            @include backgroundSolt(80px, 50%);
+            &:first-child {width:548px; border-left:0; background-image:url(../../images/service/as_icon01.gif);}
+        }
+        dt {padding:20px 0 0; font-size:22px;}
+        dd {padding:15px 0 0; font-size:40px;}
+    }
+    .as_input_box01 {
+        li {
+            &:nth-of-type(odd) {float:right;}
+            &:nth-of-type(even) {float:left;}
+            &:first-child {width:100%; float:left;}
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

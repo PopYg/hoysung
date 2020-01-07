@@ -1,0 +1,421 @@
+@charset "UTF-8";
+
+@import "./_common/base";
+@import "./layout";
+@import "./main";
+@import "./applications";
+@import "./company";
+@import "./etc";
+@import "./products";
+@import "./promotion";
+@import "./service";
+
+/*
+  z-index 가이드
+  container : auto
+  header :200
+  header dimmed :100
+*/
+
+//기본 스타일
+input[type=text],
+textarea,
+select {
+    outline:none;
+    @include transition(border-color, .2s);
+    &:focus { border-color:$violet !important;}
+}
+
+::selection { background:$violet; color:$white; text-shadow:none; }
+
+::-moz-selection { background:$violet; color:$white; text-shadow:none; }
+
+img { vertical-align:top; image-rendering:-webkit-optimize-contrast;}
+
+.popup_dimmed {
+    width:100%; height:100%; position:fixed; z-index:300; background-color:$black; display:none; top:0;
+    @include opacity(0);
+}
+caption { width:1px; height:1px; overflow:hidden; margin:-1px;}
+
+//퍼블 가이드용
+.guide_line {
+    div {
+        &:after,
+        &:before {width:1px; height:100%; display:block; content:""; position:fixed; background-color:$gray1; z-index:1000; opacity:0.3;}
+        &.guide_70 {
+            @media screen and (max-width:#{1480px}) {
+                display:none;
+            }
+            &:before {left:70px;}
+            &:after {right:70px}
+        }
+        &.guide_center {
+            &:before {left:50%;}
+        }
+        &.guide_1180 {
+            &:before {left:50%; margin:0 0 0 -590px;}
+            &:after {left:50%; margin:0 0 0 590px;}
+        }
+        &.guide_1320 {
+            &:before {left:50%; margin:0 0 0 -660px;}
+            &:after {left:50%; margin:0 0 0 660px;}
+        }
+    }
+}
+
+//히든 텍스트
+.hidden-txt,
+legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; height:0; line-height:1px; position:absolute;}
+
+#container {
+    overflow:hidden;
+    #subVisual {
+        height:460px; margin:0 0 0 70px; position:relative;
+        @include backgroundSolt(50%, -170px);
+        &.company_visual {background-image:url(../../images/company/sub_visual.jpg);}
+        &.promotion_visual {background-image:url(../../images/promotion/sub_visual.jpg);}
+        &.service_visual {background-image:url(../../images/service/sub_visual.jpg);}
+        &.util_visual {background-image:url(../../images/etc/sub_visual.jpg);}
+        &:before,
+        &:after {
+            position:absolute; display:block; content:"";
+            @include backgroundSolt;
+        }
+        &:before {width:89px; height:88px; background-image:url(../../images/common/sub_visual_mask_left.png); left:0; top:100px;}
+        &:after {width:286px; height:53px; background-image:url(../../images/common/sub_visual_mask_right.png); right:0; bottom:0;}
+        .visual_txt {
+            padding:230px 0 0 130px; color:$white;
+            h3 {font-size:50px; font-family:$slab; font-weight:$light;}
+            p {font-size:18px; padding:25px 0 0;}
+        }
+    }
+}
+
+//서브 로케이션
+#subLocation {
+    width:100%; height:70px; position:relative; z-index:100;
+    @include boxSizing;
+    &.fixed {
+        .location_box {position:fixed; top:0; background-color:$violet;}
+        .location_list {
+            > li {
+                &:before,
+                &:after {background-color:$white;}
+                button {
+                    color:$white;
+                    &:after {border-top-color:$white;}
+                }
+                &.home a {background-image:url(../../images/common/sub_home_icon_on.png);}
+            }
+        }
+    }
+    .location_box {
+        width:100%; height:70px; position:absolute; padding:0 70px; font-size:15px;
+        @include transition(background-color, .2s);
+    }
+    .location_list {
+        @extend %clearfix;
+        > li {
+            width:212px; height:70px; float:left; position:relative; overflow:hidden; padding:0 6px 0 0;
+            &:hover,
+            &:focus {
+                button {
+                    &:after {@include rotate(180);}
+                }
+            }
+            &:before,
+            &:after {width:8px; height:1px; background-color:$gray3; display:block; content:""; position:absolute; right:0;}
+            &:before {
+                top:37px;
+                @include rotate(-45);
+            }
+            &:after {
+                top:31px;
+                @include rotate(45);
+            }
+            button, a {
+                width:100%; text-align:left; color:$gray2;
+                @include boxSizing;
+            }
+            button {
+                height:70px; position:relative; display:block; padding:0 0 0 15px; font-size:15px;
+                &:after {
+                    width:0; height:0; display:block; content:""; border-top-style:solid; border-top-color:#636363; border-top-width:6px; position:absolute; right:16px; top:32px;
+                    border-left-width:4px; border-right-width:4px; border-left-style:solid; border-right-style:solid; border-right-color:transparent; border-left-color:transparent;
+                    @include transition;
+                }
+            }
+            &.home {
+                width:50px; margin:0 0 0 -16px;
+                a {
+                    width:50px; height:70px; display:block; background-image:url(../../images/common/sub_home_icon.png); text-indent:-9999px;
+                    @include backgroundSolt(50%, 48%);
+                }
+            }
+            &.depth2 {
+                &:after,
+                &:before {display:none;}
+            }
+            .under_depth {
+                background-color:$violet; padding:30px 0; border-bottom-right-radius:37px;
+                li {
+                    padding:25px 0 0;
+                    &:first-child {padding:0;}
+                }
+                a {
+                    color:$white; position:relative; margin:0 0 0 20px;
+                    &:after {
+                        width:100%; height:1px; content:""; background-color:$white; display:block; position:absolute; bottom:0; left:0;
+                        @include scaleX(0);
+                        @include transition(transform, .2s);
+                    }
+                    &:hover,
+                    &:focus,
+                    &.active {
+                        &:after {@include scaleX(1);}
+                    }
+                }
+            }
+        }
+    }
+}
+#wrap {position:relative;}
+
+
+#subContents {
+    position:relative;
+
+    //서브 페이지 우측 슬로건
+    #subSlogan {
+        display:inline-block; position:absolute; font-size:15px; font-family:$slab; color:$gray2; right:2px; top:280px;
+        @include rotate(-90);
+        @media screen and (max-width:#{1321px}) {
+            right:50%; margin:0 -658px 0 0;
+        }
+        &:before,
+        &:after {display:block; content:""; position:absolute;}
+        &:before {
+            width:4px; height:4px; left:-15px; top:6px; background-color:$gray2;
+            @include borderRadius(100%);
+        }
+        &:after {width:55px; height:2px; background-color:$gray3; top:7px; right:-72px;}
+    }
+
+    //서브 페이지 패럴럭스 아이콘
+    #pallIcon {
+        width:100%; height:100%; position:absolute; z-index:-1; top:100px;
+        i {
+            width:600px; height:300px; display:block; background-image:url(../../images/common/sub_pall_icon.png); position:absolute;
+            @include backgroundSolt;
+            &.right_icon {top:220px; right:-438px;}
+            &.left_icon {
+                top:940px; left:-300px;
+                @include rotate(60);
+            }
+            &.right_bottom_icon {
+                top:2000px; right:-300px;
+                @include rotate(120);
+            }
+            &.bottom_icon {bottom:-100px; right:50%; margin:0 0 0 -780px;}
+        }
+    }
+    #contentsWrap {
+        min-width:1180px; padding:0 0 130px;
+        #subTitle {width:1180px; margin:0 auto; padding:60px 0;}
+        h4 {
+            &.sub_tit {font-size:50px; font-weight:$bold; text-align:center;}
+            &.sub_tit2 {
+                font-size:60px; font-weight:$light; padding:0 0 0 140px; line-height:90px; margin:-15px 0 0;
+                span {font-size:75px; font-family:$slab; text-decoration:underline;}
+            }
+        }
+    }
+}
+
+//커스텀 사용자 입력 폼
+#writeForm {
+    section {padding:80px 0 0;}
+    .tit_wrap {
+        @extend %clearfix;
+        h5 {float:left; font-size:28px; font-weight:$bold;}
+        p {
+            float:right; font-size:15px; font-family:$noto; position:relative;
+            &:before {content:"*"; display:block; color:$blue; position:absolute; font-size:28px; left:-17px;}
+        }
+    }
+    .input_wrap {
+        border-top:2px solid $black; margin:25px 0 0; font-size:18px;
+        ol {@extend %clearfix;}
+        li {
+            width:580px; padding:55px 0 0;
+            &:nth-of-type(odd) {float:left;}
+            &:nth-of-type(even) {float:right;}
+            > label,
+            .tit {
+                font-size:18px;
+                strong {color:$blue; font-family:$noto; vertical-align:top;}
+            }
+            input[type=text] {
+                width:100%; display:block; margin:25px 0 0; border-bottom:1px solid $gray4; padding:14px 0; font-size:18px;
+                @include placeholder(18px, $gray3, 18px);
+            }
+            textarea {
+                width:100%; height:150px; margin:50px 0 0; display:block; border-bottom:1px solid $gray4; padding:0; font-size:18px; line-height:26px; resize:none;
+                @include placeholder(18px, $gray3, 18px);
+            }
+        }
+    }
+
+    .radio_wrap {
+        padding:38px 0 0;
+        @extend %clearfix;
+        div {
+            float:left; position:relative; margin:0 0 0 30px;
+            &:first-child {margin:0;}
+            input[type=radio] {
+                position:absolute; top:5px; left:5px;
+                &:checked ~ label {
+                    &:before {background-color:$violet;}
+                }
+            }
+            label {
+                padding:0 0 0 38px; position:relative; line-height:26px; font-size:18px; display:inline-block;
+                &:before,
+                &:after {
+                    position:absolute; display:block; content:"";
+                    @include borderRadius(100%);
+                }
+                &:before {
+                    width:26px; height:26px; background-color:$gray4; left:0; top:0;
+                    @include transition(background-color, .2s);
+                }
+                &:after {width:10px; height:10px; background-color:$white; top:8px; left:8px;}
+            }
+        }
+    }
+
+    .input_file_upload {
+        .file_btn_wrap {
+            @extend %clearfix;
+            input[type=text] {width:1036px; float:left;}
+            button {
+                width:124px; height:56px; float:right; background-color:$gray1; color:$white; margin:20px 0 0;
+                @include transition(background-color, .2s);
+                &:hover,
+                &:focus {background-color:$violet;}
+            }
+        }
+        .upload_caution {
+            padding:8px 0 0; font-size:15px; color:#888; line-height:18px;
+            p {
+                margin:12px 0 0; position:relative; padding:0 0 0 23px;
+                &:before {width:18px; height:18px; display:block; content:""; background:url(../../images/common/caution_icon.gif) 0 0 no-repeat; position:absolute; left:0; top:0;}
+            }
+        }
+    }
+
+    .agree_wrap {
+        textarea {
+            width:100%; height:380px; border:1px solid $gray4; border-top:2px solid $black; line-height:34px; font-size:18px; resize:none; margin:25px 0 0;
+            @include boxSizing;
+        }
+        ol {
+            li {
+                padding:24px 0; border-bottom:1px solid $gray4;
+                @extend %clearfix;
+            }
+            p {float:left; font-size:18px; line-height:26px;}
+            .radio_wrap {padding:0; float:right;}
+        }
+    }
+    .submit_wrap {
+        text-align:center; padding:60px 0 0;
+        input[type=submit] {
+            padding:25px 50px; background-color:$violet; color:$white; display:inline-block; cursor:pointer; font-size:22px;
+            @include borderRadius(50px);
+            @include transition(background-color, .2s);
+            &:hover,
+            &:focus {background-color:$deep;}
+        }
+    }
+}
+
+//더보기 버튼
+.more_wrap {
+    text-align:center; margin:60px 0 0;
+    button {
+        display:inline-block; padding:50px 0 0; color:$black; position:relative;
+        @include transition(all, .4s);
+        &:before {
+            width:1px; height:30px; display:block; content:""; background-color:$black; position:absolute; top:0; left:50%;
+            @include transition(transform, .4s);
+        }
+        &:hover {
+            color:$violet;
+            @include translate(0, 10px);
+            &:before {
+                background-color:$violet;
+                @include translate(0, 10px);
+            }
+        }
+    }
+}
+
+//팝업 기본
+#modalPopup {
+    width:100%; height:100%; position:fixed; background-color:rgba(0, 0, 0, 0.4); z-index:150; overflow-y:scroll; top:0; left:0; display:none;
+    @include opacity(0);
+    .popup_container {
+        width:1180px; margin:100px auto; background-color:$white; position:relative;
+        .popup_close {
+            width:58px; height:58px; position:absolute; top:0; right:-68px; text-indent:-9999px; overflow:hidden; background:url(../../images/icon/popup_close.png) 50% 50% no-repeat;
+            @include borderSet(1px, solid, $white);
+            @include transition;
+            @include backgroundSolt;
+            &:hover {border-color:$violet; background-color:$violet;}
+        }
+    }
+    .popup_wrap {padding:55px 60px 0; display:none;}
+}
+
+//게시판 paging
+#listPage {
+    position:relative; margin:70px 0 0; text-align:center;
+    .page_btn {
+        display:inline-block;
+        button, a {
+            width:36px; height:36px; float:left; line-height:34px; display:inline-block; margin:0 3px; background-color:$white;
+            border-width:1px; border-style:solid; border-color:$gray4; color:$gray2; font-weight:$light;
+            @include transition;
+            @include backgroundSolt;
+            @include boxSizing;
+            &.prev_end_btn,
+            &.prev_btn,
+            &.next_btn,
+            &.next_end_btn {text-indent:-9999px; overflow:hidden;}
+            &.prev_end_btn { background-image:url(../../images/icon/page_prev_all.gif);}
+            &.prev_btn {
+                background-image:url(../../images/icon/page_prev.gif); margin:0 17px 0 5px;
+            }
+            &.next_btn {
+                background-image:url(../../images/icon/page_prev.gif); margin:0 5px 0 17px;
+                @include rotate(180);
+            }
+            &.next_end_btn {
+                background-image:url(../../images/icon/page_prev_all.gif);
+                @include rotate(180);
+            }
+            &:hover,
+            &:focus {border-color:$violet;}
+            &.active {color:$white; background-color:$violet; border-color:$violet;}
+        }
+    }
+}
+
+//스크롤섹션 애니메이션
+.js-scr-box {
+    @include scrAnimateSet(0, 50px);
+}
+
+

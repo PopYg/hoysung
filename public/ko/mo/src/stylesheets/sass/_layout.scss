@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+html, body { max-width:100%;}
+html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
+.dimmed {
+    width:100%; height:100%; position:fixed; z-index:100; background-color:#000; display:none; top:0;
+    @include opacity(0);
+}
+
+//스킵 네이게이션
+#skipNavigation a {
+    position:absolute; top:-100px; left:0; z-index:1000; width:100%; border-bottom:1px solid #dbdbdb; background:#f8f7f3; line-height:50px;
+    &:focus {top:0; text-align:center;}
+}
+
+/* 헤더 */
+#header {
+    width:100%; min-width:1320px; height:100px; position:absolute; top:0; left:0; z-index:100; overflow:hidden; padding:0 70px;
+    @include boxSizing;
+    &:before {
+        width:100%; height:200px; display:block; content:""; position:absolute; top:-100px; z-index:-1; background-color:$white; right:90px;
+        border-bottom-right-radius:250px 150px; -webkit-border-bottom-right-radius:250px 150px; -moz-border-bottom-right-radius:250px 150px;
+    }
+    .header_wrap {
+        min-width:1180px; position:relative;
+        @extend %clearfix;
+
+        @media screen and (max-width:#{1650px}) {
+            .gnb_wrap {position:relative; padding:0 255px 0 280px;}
+            .header_util {
+                ol {
+                    padding:0 20px 0 0;
+                    li {width:31px; padding:0 0 0 15px;}
+                }
+            }
+        }
+        @media screen and (max-width:#{1500px}) {
+            .gnb_wrap #gnb .depth_one li {margin:0 0 0 40px;}
+        }
+    }
+    h1 {
+        float:left; text-indent:-9999px; padding:38px 0 0; position:relative; z-index:30;
+        a {width:280px; height:24px; display:block; background:url(../../images/layout/logo.jpg) 50% 50% no-repeat;}
+    }
+    .gnb_wrap {
+        position:relative; padding:0 385px 0 280px;
+        #gnb {
+            position:relative;
+            .depth_one {
+                width:100%; position:absolute; height:100px; text-align:center; font-size:18px; line-height:100px; font-family:$roboto;
+                ul {display:inline-block;}
+                li {
+                    float:left; margin:0 0 0 80px;
+                    &:first-child {margin:0;}
+                    &:hover a {
+                        color:$violet;
+                        &:after {
+                            @include opacity(1);
+                            @include translate(-50%, 0);
+                        }
+                    }
+                }
+                a {
+                    position:relative;
+                    @include transition(color, .2s);
+                    &:after {
+                        width:4px; height:4px; display:block; content:""; position:absolute; top:26px; left:50%; background-color:$violet;
+                        @include translate(-50%, -5px);
+                        @include borderRadius(100%);
+                        @include opacity(0);
+                        @include transition;
+                    }
+                    &:focus {
+                        color:$violet;
+                        &:after {
+                            @include opacity(1);
+                            @include translate(-50%, 0);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /* 헤더 유틸 */
+    .header_util {
+        position:absolute; top:33px; right:0; line-height:34px; z-index:10;
+        @extend %clearfix;
+        ol {
+            height:34px; float:left; font-size:15px; padding:0 40px 0 0; overflow:hidden;
+            @extend %clearfix;
+            li {
+                width:auto; float:left; padding:0 0 0 30px; overflow:hidden;
+                &:nth-of-type(1) {
+                    padding:0;
+                    a {
+                        &:before {width:31px; background-image:url(../../images/layout/util_icon01.gif);}
+                        &:hover,
+                        &:focus {
+                            color:$violet;
+                            &:before {background-image:url(../../images/layout/util_icon01_on.gif);}
+                        }
+                    }
+                }
+                &:nth-of-type(2) {
+                    a {
+                        &:before {width:28px; background-image:url(../../images/layout/util_icon02.gif);}
+                        &:hover,
+                        &:focus {
+                            color:$violet;
+                            &:before {background-image:url(../../images/layout/util_icon02_on.gif);}
+                        }
+                    }
+                }
+            }
+            a {
+                @include transition(color, .2s);
+                @extend %clearfix;
+                &:before {
+                    height:28px; content:""; margin:3px 10px 0 0; float:left;
+                    @include backgroundSolt;
+                    @include transition(background-image, .2s);
+                }
+                span {float:left;}
+            }
+        }
+        > a {
+            height:34px; display:block; float:left; font-size:13px; color:$white; background-color:$violet; padding:0 16px; position:relative; overflow:hidden;
+            @include borderRadius(34px);
+            @include transition(background-color, .5s);
+            &:hover,
+            &:focus {background-color:$deep;}
+        }
+    }
+}
+
+//footer
+#footer {
+    min-width:1180px; padding:55px 70px; background-color:$gray1; position:relative;
+    &:before {width:96px; height:48px; display:block; content:""; position:absolute; background:url(../../images/layout/footer_mask.png) 50% 50% no-repeat; top:-48px; right:0;}
+    .footer_wrap {position:relative;}
+    .footer_info {
+        color:$gray3;
+        .f_link {
+            font-size:15px; line-height:18px;
+            @extend %clearfix;
+            li {
+                float:left; padding:0 0 0 25px; position:relative;
+                &:before {width:2px; height:2px; display:block; content:""; background-color:$gray3; position:absolute; top:7px; left:12px;}
+                &:first-child {
+                    font-size:18px; padding:0;
+                    &:before {display:none;}
+                }
+            }
+            a {
+                color:$white; position:relative;
+                &:hover:after,
+                &:focus:after {width:100%;}
+                &:after {
+                    width:0; height:1px; display:block; content:""; position:absolute; bottom:-2px; left:0; background-color:$white;
+                    @include transition(width, .2s);
+                }
+            }
+        }
+        .company_info {padding:30px 0 0;}
+        .copyright {padding:15px 0 0;}
+    }
+    #familySite {}
+}

@@ -1,0 +1,50 @@
+//Noto Sans
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 300;
+	src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),
+	url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),
+	url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 500;
+	src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'),
+	url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),
+	url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');
+}
+
+
+
+/* latin - Roboto */
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 300;
+	src:url(../../fonts/roboto-regular.woff2) format('woff2'),
+	url(../../fonts/roboto-regular.woff) format('woff'),
+	url(../../fonts/roboto-regular.eot) format('eot'),
+	url(../../fonts/roboto-regular.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 500;
+	src:url(../../fonts/roboto-bold.woff2) format('woff2'),
+	url(../../fonts/roboto-bold.woff) format('woff'),
+	url(../../fonts/roboto-bold.eot) format('eot'),
+	url(../../fonts/roboto-bold.ttf) format('truetype');
+}
+
+/* latin - Roboto Slab */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+
+
+
+
+

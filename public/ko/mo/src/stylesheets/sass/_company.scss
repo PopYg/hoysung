@@ -1,0 +1,179 @@
+@charset "UTF-8";
+
+//회사소개 > hyosung way
+#contentsWrap.way {
+    padding:0 !important;
+    .comment_box {
+        width:1180px; margin:0 auto; padding:30px 0 90px 140px;
+        @include boxSizing;
+        @extend %clearfix;
+        dl {width:480px; float:left;}
+        dt {font-family:$slab; font-size:22px;}
+        dd {font-size:18px; line-height:34px; color:$gray2; padding:35px 0 0;}
+    }
+    .mission {
+        min-width:1180px; padding:0 70px;
+        .img_wrap {
+            width:100%; height:640px; background-image:url(../../images/company/way_img01.jpg);
+            @include backgroundSolt;
+        }
+        .txt_wrap {
+            width:1180px; margin:0 auto; padding:80px 0 100px 140px;
+            @include boxSizing;
+            h1 {font-size:18px; font-weight:$light; color:$gray2;}
+            .txt_box {
+                padding:25px 0 0;
+                @extend %clearfix;
+                p.tit {width:515px; font-size:40px; line-height:60px; font-weight:$bold; float:left;}
+                p.txt {font-size:18px; line-height:34px; float:left; padding:5px 0 0;}
+            }
+        }
+    }
+    .core {
+        background-color:$gray5; padding:100px 0 120px;
+        .core_wrap {
+            width:1180px; margin:0 auto;
+            &.js-motion-end {
+                .core_box:before {@include scaleX(1);}
+                .core_circle:after {@include rotate(180)}
+            }
+            .tit_wrap {
+                text-align:center;
+                h1 {font-size:18px; color:$gray2; font-weight:$light;}
+                p {font-size:40px; padding:25px 0 0; font-weight:$bold;}
+            }
+            .core_box {
+                width:930px; margin:100px auto 0; position:relative;
+                @extend %clearfix;
+                &:before {
+                    width:1280px; height:1px; display:block; content:""; background-color:$gray4; position:absolute; top:120px; left:50%; margin:0 0 0 -640px;
+                    @include scaleX(0);
+                    @include transition(transform, 3s);
+                }
+                article {
+                    width:240px; float:left; margin:0 0 0 -10px; position:relative;
+                    &:nth-of-type(1) {
+                        margin:0; z-index:4;
+                        .core_circle {
+                            background-color:#7f3f95;
+                            &:after {background-image:url(../../images/company/circle_dotted01.png);}
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        z-index:3;
+                        .core_circle {
+                            background-color:#e98e29;
+                            &:after {background-image:url(../../images/company/circle_dotted02.png);}
+                        }
+                    }
+                    &:nth-of-type(3) {
+                        z-index:2;
+                        .core_circle {
+                            background-color:#3586d9;
+                            &:after {background-image:url(../../images/company/circle_dotted03.png);}
+                        }
+                    }
+                    &:nth-of-type(4) {
+                        z-index:1;
+                        .core_circle {
+                            background-color:#40b94c;
+                            &:after {background-image:url(../../images/company/circle_dotted04.png);}
+                        }
+                    }
+                }
+            }
+            .core_circle {
+                width:240px; height:240px; text-align:center; color:$white; font-size:30px; padding:90px 0 0;
+                @include boxSizing;
+                @include borderRadius(100%);
+                span {font-size:18px; font-weight:$light; padding:13px 0 0; display:inline-block;}
+                &:after {
+                    width:260px; height:260px; display:block; content:""; position:absolute; left:-10px; top:-10px;
+                    @include backgroundSolt;
+                    @include transition(transform, 4s);
+                }
+            }
+            ol {
+                padding:70px 0 0 15px; font-size:18px; line-height:32px; color:$gray2;
+                li {
+                    padding:10px 0 0 8px; position:relative;
+                    &:before {
+                        width:3px; height:3px; display:block; content:""; position:absolute; left:0; top:24px; background-color:$gray2;
+                        @include borderRadius(100%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+//회사소개 - 사업장 안내
+#contentsWrap.company_location {
+    .location_wrap {width:1180px; margin:0 auto;}
+    section {
+        padding:80px 0 0;
+        &:first-child {padding:0;}
+        h5 {font-size:28px;}
+        > ol {
+            border-top:2px solid $black; margin:20px 0 0;
+            > li {
+                height:170px; border-bottom:1px solid $gray4; padding:40px; background-color:$white; position:relative; overflow:hidden;
+                @include boxSizing;
+                @include transition(background-color, .3s);
+                &.active {
+                    background-color:#fafafa;
+                    p.name {color:$violet; font-weight:$bold;}
+                    .open_btn {background-color:$violet; background-image:url(../../images/common/map_icon_over.png); border-color:$violet; color:$white;}
+                }
+            }
+        }
+        p.name {
+            font-size:25px; color:$black;
+            @include transition(color, .3s);
+        }
+        p.location_txt {font-size:18px; color:$gray2; padding:20px 0 0;}
+        .tel_number {
+            padding:10px 0 0; color:$gray2;
+            @extend %clearfix;
+            li {
+                float:left; padding:0 0 0 25px; position:relative;
+                &:after {width:1px; height:15px; display:block; content:""; background-color:$gray4; position:absolute; top:1px; left:13px;}
+                &:first-child {
+                    padding:0;
+                    &:after {display:none;}
+                }
+            }
+        }
+        .open_btn {
+            width:122px; height:56px; display:block; font-size:18px; color:$gray2; background-image:url(../../images/common/map_icon.png); text-align:left; text-indent:58px; position:absolute;
+            top:58px; right:40px;
+            @include borderSet(1px, solid, $gray3);
+            @include backgroundSolt(30px, 50%);
+            @include transition;
+            &:hover,
+            &:focus {background-color:$violet; background-image:url(../../images/common/map_icon_over.png); border-color:$violet; color:$white;}
+        }
+        .map_wrap {height:400px; background:url(../../images/company/location_img.jpg) 0 0 no-repeat; margin:40px 0 0;}
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
