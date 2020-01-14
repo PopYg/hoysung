@@ -2,25 +2,21 @@
 
 //서비스 > a/s센터
 #contentsWrap.as_center {
-    width:1180px; margin:0 auto;
     .as_tit {
-        color:$white; background-color:$violet; padding:35px 0 35px 34px;
-        @extend %clearfix;
+        color:$white; background-color:$violet; text-align:center; padding:5px 30px 20px;
+        @include boxSizing;
         dl {
-            height:110px; float:left; padding:0 0 0 230px; border-left:1px solid #5833a2; background-image:url(../../images/service/as_icon02.gif);
+            width:300px; height:71px; background-image:url(../../images/service/as_icon02.gif); display:inline-block; text-align:left; padding:0 0 0 95px; margin:20px 0 0;
+            -webkit-background-size:71px; background-size:71px;
             @include boxSizing;
-            @include backgroundSolt(80px, 50%);
-            &:first-child {width:548px; border-left:0; background-image:url(../../images/service/as_icon01.gif);}
+            @include backgroundSolt(0, 50%);
+            &:first-child {background-image:url(../../images/service/as_icon01.gif);}
         }
-        dt {padding:20px 0 0; font-size:22px;}
-        dd {padding:15px 0 0; font-size:40px;}
+        dt {padding:12px 0 0; font-size:14px;}
+        dd {padding:12px 0 0; font-size:24px;}
     }
     .as_input_box01 {
-        li {
-            &:nth-of-type(odd) {float:right;}
-            &:nth-of-type(even) {float:left;}
-            &:first-child {width:100%; float:left;}
-        }
+
     }
 }
 

@@ -3,12 +3,13 @@ var winW;
 var winH;
 var es_step = "Expo.ease";
 var $window = $(window);
+var $body = $("body");
 var winSc;
 var htmlH;
 var $subLocation = $("#subLocation");
 
 $window.load(function () {
-    htmlH = $("body").outerHeight(true);
+    htmlH = $body.outerHeight(true);
     winSc = $(this).scrollTop();
     $window.on("resize", function () {
         winW = $(this).width();

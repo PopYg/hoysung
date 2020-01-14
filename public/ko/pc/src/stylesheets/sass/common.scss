@@ -39,7 +39,7 @@ img { vertical-align:top; image-rendering:-webkit-optimize-contrast;}
 caption { width:1px; height:1px; overflow:hidden; margin:-1px;}
 
 //퍼블 가이드용
-.guide_line {
+/*.guide_line {
     div {
         &:after,
         &:before {width:1px; height:100%; display:block; content:""; position:fixed; background-color:$gray1; z-index:1000; opacity:0.3;}
@@ -62,7 +62,7 @@ caption { width:1px; height:1px; overflow:hidden; margin:-1px;}
             &:after {left:50%; margin:0 0 0 660px;}
         }
     }
-}
+}*/
 
 //히든 텍스트
 .hidden-txt,
@@ -413,9 +413,5 @@ legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; hei
     }
 }
 
-//스크롤섹션 애니메이션
-.js-scr-box {
-    @include scrAnimateSet(0, 50px);
-}
 
 

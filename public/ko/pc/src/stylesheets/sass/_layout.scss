@@ -93,16 +93,6 @@ html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
                 &:nth-of-type(1) {
                     padding:0;
                     a {
-                        &:before {width:31px; background-image:url(../../images/layout/util_icon01.gif);}
-                        &:hover,
-                        &:focus {
-                            color:$violet;
-                            &:before {background-image:url(../../images/layout/util_icon01_on.gif);}
-                        }
-                    }
-                }
-                &:nth-of-type(2) {
-                    a {
                         &:before {width:28px; background-image:url(../../images/layout/util_icon02.gif);}
                         &:hover,
                         &:focus {

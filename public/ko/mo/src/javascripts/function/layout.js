@@ -1,33 +1,39 @@
 function layout() {
     var $header = $("#header");
-    var $gnb = $header.find("#gnb"),
-        $gnbOpenDepth = $gnb.find(".open_depth"),
-        $gnbAllDepth = $gnb.find(".all_depth"),
-        $gnbAllDepthWrap = $gnbAllDepth.find(".depth_wrap");
-    var _allDepthH = $gnbAllDepthWrap.innerHeight();
-
+    var $gnb = $("#gnb"),
+        $gnbBtn = $("#gnbBtn"),
+        $gnbWrap = $gnb.find(".gnb_wrap");
+    var $gnbDepthBtn = $gnb.find("nav button");
     var $gnbDimmed = $("#gnbDimmed");
-    var $allNavBtn = $("#allNavBtn");
 
-    /*//gnb open/close
-    $gnbOpenDepth.find("li a").mouseenter( function () {
-        gnbOpen(_allDepthH);
+    $gnbBtn.click(function () {
+        var _this = $(this);
+        if(!_this.hasClass("active")){
+            $body.addClass("no_scroll");
+            _this.addClass("active");
+            TweenMax.to($gnbDimmed, .3, {display:"block", opacity:.8, ease:es_step});
+            TweenMax.to($gnbWrap, .4, {x:"0%", ease:es_step});
+        } else {
+            $body.removeClass("no_scroll");
+            _this.removeClass("active");
+            TweenMax.to($gnbDimmed, .3, {display:"none", opacity:0, ease:es_step});
+            TweenMax.to($gnbWrap, .4, {x:"-100%", ease:es_step});
+        }
     });
-    $gnbAllDepth.mouseleave(function () {
-        gnbClose();
+
+    $gnbDepthBtn.click(function () {
+        var _this = $(this);
+        var _underH = _this.siblings("ul").innerHeight();
+        if(!_this.hasClass("active")){
+            $gnbDepthBtn.removeClass("active");
+            _this.addClass("active");
+            TweenMax.to($gnbDepthBtn.closest("li"), .3, {height:24, ease:es_step});
+            TweenMax.to(_this.closest("li"), .3, {height:25 + _underH, ease:es_step});
+        } else {
+            $gnbDepthBtn.removeClass("active");
+            TweenMax.to($gnbDepthBtn.closest("li"), .3, {height:24, ease:es_step});
+        }
     });
-
-    function gnbOpen(_gnbHeight) {
-        $gnbAllDepthWrap.addClass("open");
-        TweenMax.to($gnbAllDepth, .5, {height: _gnbHeight, ease: es_step});
-        TweenMax.to($gnbDimmed, .5, {display:"block", opacity:.8, ease:es_step});
-    }
-
-    function gnbClose() {
-        $gnbAllDepthWrap.removeClass("open");
-        TweenMax.to($gnbAllDepth, .5, {height: 0, ease: es_step});
-        TweenMax.to($gnbDimmed, .5, {display:"none", opacity:0, ease:es_step});
-    }*/
 
 
     //footer

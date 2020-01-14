@@ -3,12 +3,13 @@ var winW;
 var winH;
 var es_step = "Expo.ease";
 var $window = $(window);
+var $body = $("body");
 var winSc;
 var htmlH;
 var $subLocation = $("#subLocation");
 
 $window.load(function () {
-    htmlH = $("body").outerHeight(true);
+    htmlH = $body.outerHeight(true);
     winSc = $(this).scrollTop();
     $window.on("resize", function () {
         winW = $(this).width();
@@ -37,6 +38,7 @@ function companyJS(){
     var $companyLocation = $(".company_location");
     var $locationSec = $companyLocation.find("section");
     var $locationLi = $locationSec.find("> ol > li");
+    var $locationMap = $locationSec.find("> ol .map_wrap");
 
     $locationSec.each(function () {
         var _this = $(this);
@@ -45,11 +47,11 @@ function companyJS(){
         $openBtn.click(function () {
             var _thisBtn = $(this);
             var _thisLi = _thisBtn.parent().parent();
-            TweenMax.to($locationLi, .3, {height:170, ease:es_step});
+            TweenMax.to($locationMap, .3, {height:0, ease:es_step});
             if(!_thisLi.hasClass("active")){
                 $locationLi.removeClass("active");
                 _thisLi.addClass("active");
-                TweenMax.to(_thisBtn.parent().parent(), .3, {height:610, ease:es_step});
+                TweenMax.to(_thisBtn.parent().siblings(), .3, {height:200, ease:es_step});
             } else {
                 $locationLi.removeClass("active");
             }
@@ -75,34 +77,40 @@ function etcJS(){
 }
 function layout() {
     var $header = $("#header");
-    var $gnb = $header.find("#gnb"),
-        $gnbOpenDepth = $gnb.find(".open_depth"),
-        $gnbAllDepth = $gnb.find(".all_depth"),
-        $gnbAllDepthWrap = $gnbAllDepth.find(".depth_wrap");
-    var _allDepthH = $gnbAllDepthWrap.innerHeight();
-
+    var $gnb = $("#gnb"),
+        $gnbBtn = $("#gnbBtn"),
+        $gnbWrap = $gnb.find(".gnb_wrap");
+    var $gnbDepthBtn = $gnb.find("nav button");
     var $gnbDimmed = $("#gnbDimmed");
-    var $allNavBtn = $("#allNavBtn");
 
-    /*//gnb open/close
-    $gnbOpenDepth.find("li a").mouseenter( function () {
-        gnbOpen(_allDepthH);
+    $gnbBtn.click(function () {
+        var _this = $(this);
+        if(!_this.hasClass("active")){
+            $body.addClass("no_scroll");
+            _this.addClass("active");
+            TweenMax.to($gnbDimmed, .3, {display:"block", opacity:.8, ease:es_step});
+            TweenMax.to($gnbWrap, .4, {x:"0%", ease:es_step});
+        } else {
+            $body.removeClass("no_scroll");
+            _this.removeClass("active");
+            TweenMax.to($gnbDimmed, .3, {display:"none", opacity:0, ease:es_step});
+            TweenMax.to($gnbWrap, .4, {x:"-100%", ease:es_step});
+        }
     });
-    $gnbAllDepth.mouseleave(function () {
-        gnbClose();
+
+    $gnbDepthBtn.click(function () {
+        var _this = $(this);
+        var _underH = _this.siblings("ul").innerHeight();
+        if(!_this.hasClass("active")){
+            $gnbDepthBtn.removeClass("active");
+            _this.addClass("active");
+            TweenMax.to($gnbDepthBtn.closest("li"), .3, {height:24, ease:es_step});
+            TweenMax.to(_this.closest("li"), .3, {height:25 + _underH, ease:es_step});
+        } else {
+            $gnbDepthBtn.removeClass("active");
+            TweenMax.to($gnbDepthBtn.closest("li"), .3, {height:24, ease:es_step});
+        }
     });
-
-    function gnbOpen(_gnbHeight) {
-        $gnbAllDepthWrap.addClass("open");
-        TweenMax.to($gnbAllDepth, .5, {height: _gnbHeight, ease: es_step});
-        TweenMax.to($gnbDimmed, .5, {display:"block", opacity:.8, ease:es_step});
-    }
-
-    function gnbClose() {
-        $gnbAllDepthWrap.removeClass("open");
-        TweenMax.to($gnbAllDepth, .5, {height: 0, ease: es_step});
-        TweenMax.to($gnbDimmed, .5, {display:"none", opacity:0, ease:es_step});
-    }*/
 
 
     //footer
@@ -128,25 +136,25 @@ function layout() {
 
 
 function locationJS(){
-    $subLocation.find("button").on("mouseenter focusin",function (e) {
+    $subLocation.find("button").click(function (e) {
         e.preventDefault();
         var _this = $(this);
         var locationDepthH = _this.siblings(".under_depth").outerHeight();
         if(!_this.hasClass("active")){
             _this.addClass("active");
-            TweenMax.to($(".location_list > li") , .3, {height: 70, ease:es_step});
-            TweenMax.to($(this).parent(), .3, {height: locationDepthH + 70, ease:es_step});
+            TweenMax.to($(".location_list > li") , .3, {height: 50, ease:es_step});
+            TweenMax.to($(this).parent(), .3, {height: locationDepthH + 50, ease:es_step});
         } else {
             if (!TweenMax.isTweening($(".location_list > li"))) {
                 $subLocation.find("button").removeClass("active");
-                TweenMax.to($(this).parent(), .3, {height: 70, ease: es_step});
+                TweenMax.to($(this).parent(), .3, {height: 50, ease: es_step});
             }
         }
     });
 
     $(".location_list > li").on("mouseleave", function () {
         $subLocation.find("button").removeClass("active");
-        TweenMax.to($(".location_list > li"), .3, {height: 70, ease: es_step});
+        TweenMax.to($(".location_list > li"), .3, {height: 50, ease: es_step});
     });
 
     //접근성 이슈
@@ -482,10 +490,10 @@ function scrollEvent(){
             var offsetTop = offset.top;
             var _this_h = $(this).innerHeight();
             var _bg_p = (winSc - offsetTop) / _this_h * 100;
-            $(this).css({"background-position-y":-_bg_p.toFixed(2) / 2 + "%"});
+            $(this).css({"background-position-y":-_bg_p.toFixed(2) + "%"});
         });
         //서브 비쥬얼 bg 패럴럭스
-        $subVisual.css({"background-position-y":-170 + winSc / 2});
+        $subVisual.css({"background-position-y":winSc / 2});
 
         //탑버튼 하단 위치 고정
         if (winSc > htmlH - 216 - winH) {
@@ -496,16 +504,11 @@ function scrollEvent(){
 
         //서브 로케이션 위치 고정 
         if($subLocation === false) {return}
-        if (winSc > 460) {
+        if (winSc > 240) {
             $subLocation.addClass("fixed");
         } else {
             $subLocation.removeClass("fixed");
         }
-
-        //서브 페이지 패럴럭스 아이콘
-        var _pallPos = Math.ceil(winSc / 30);
-        TweenMax.to($pallRight, 1, {y:-_pallPos, ease:es_step});
-        TweenMax.to($pallLeft, 1, {y:_pallPos, ease:es_step});
     });
 
     $topBtn.click(function () {

@@ -33,10 +33,6 @@
         background-color:$gray5; padding:100px 0 120px;
         .core_wrap {
             width:1180px; margin:0 auto;
-            &.js-motion-end {
-                .core_box:before {@include scaleX(1);}
-                .core_circle:after {@include rotate(180)}
-            }
             .tit_wrap {
                 text-align:center;
                 h1 {font-size:18px; color:$gray2; font-weight:$light;}
@@ -90,7 +86,6 @@
                 &:after {
                     width:260px; height:260px; display:block; content:""; position:absolute; left:-10px; top:-10px;
                     @include backgroundSolt;
-                    @include transition(transform, 4s);
                 }
             }
             ol {

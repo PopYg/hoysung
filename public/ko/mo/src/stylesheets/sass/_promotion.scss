@@ -2,27 +2,25 @@
 
 //홍보센터 - 뉴스센터 - List
 #contentsWrap.news_list {
-    width:1180px; margin:0 auto;
     .news_search {
-        text-align:center;
         fieldset {
-            display:inline-block;
             @extend %clearfix;
             select {
-                width:140px; height:56px; float:left; position:relative; border-bottom:1px solid $gray4; font-size:18px; padding:0 0 0 10px;
-                background:url(../../images/common/select_icon.gif) 115px 24px no-repeat;
+                width:27%; height:42px; float:left; position:relative; border-bottom:1px solid $gray4; font-size:14px; padding:0 0 0 10px;
+                background:url(../../images/common/select_icon.gif) right 10px top 24px no-repeat;
             }
             .search_wrap {
-                float:left; margin:0 0 0 10px;
+                width:70%; float:left; margin:0 0 0 3%;
                 @extend %clearfix;
                 input[type=text] {
-                    width:364px; height:56px; border-bottom:1px solid $gray4; float:left; padding:0 10px; font-size:18px;
-                    @include placeholder(18px, #888, 56px);
+                    width:calc(100% - 42px); height:42px; border-bottom:1px solid $gray4; float:left; padding:0 10px; font-size:14px;
+                    @include placeholder(14px, #888, 42px);
                     @include boxSizing;
                 }
                 input[type=submit] {
-                    width:56px; height:56px; background-color:$violet; border-top-right-radius:20px; -webkit-border-top-right-radius:20px;
-                    cursor:pointer; background-image:url(../../images/common/search_icon.png); text-indent:-9999px; float:left;
+                    width:42px; height:42px; background-color:$violet; border-top-right-radius:20px; -webkit-border-top-right-radius:20px;
+                    cursor:pointer; background-image:url(../../images/common/search_icon.gif); text-indent:-9999px; float:left;
+                    -webkit-background-size:17px; background-size:17px;
                     @include backgroundSolt;
                     @include transition(background-color, .2s);
                     &:hover,
@@ -30,144 +28,98 @@
                 }
             }
         }
+        .search_result {
+            font-size:14px; color:$gray2; padding:40px 0 0; line-height:24px;
+            strong {color:$violet;}
+        }
+    }
+    .list_no_result {
+        font-size:14px; color:$gray2; padding:75px 0 0; text-align:center; margin:40px 0 0; background:url(../../images/common/no_result.gif) 50% 0 no-repeat;
+        -webkit-background-size:50px; background-size:50px; line-height:24px;
+        strong {color:$violet;}
     }
     .list_wrap {
-        border-top:2px solid $black; margin:48px 0 0;
+        border-top:2px solid $black; margin:30px 0 0;
         article {border-bottom:1px solid $gray4;}
         a {
-            display:block; padding:30px 40px;
+            display:block; padding:30px 0;
             @include transition(background-color, .2s);
-            @extend %clearfix;
-            &:hover {
-                background-color:#f4f2f9;
-                h1 {
-                    color:$violet;
-                    &:after {width:100%;}
-                }
-            }
         }
         .img_wrap {
-            width:260px; height:180px; float:left;
+            width:100%; height:225px;
             @include backgroundSoltC;
         }
         .txt_wrap {
-            width:800px; float:left; padding:0 0 0 40px;
             h1 {
-                height:25px; font-size:25px; font-weight:$light; padding:20px 0 0; position:relative; display:inline-block;
+                line-height:28px; font-size:18px; font-weight:$light; padding:15px 0 0; position:relative; display:block;
                 @include transition(color, .2s);
+                @include multi-text-overflow(2);
                 &:after {
                     width:0; height:1px; display:block; content:""; position:absolute; bottom:-2px; left:0; background-color:$violet;
                     @include transition(width, .2s);
                 }
             }
             p {
-                height:64px; font-size:18px; line-height:32px; color:$gray1; margin:15px 0 0;
+                height:48px; font-size:14px; line-height:24px; color:$gray1; margin:10px 0 0;
                 @include multi-text-overflow(2);
             }
-            span {font-family:$roboto; font-size:15px; color:$gray1; padding:25px 0 0; display:block;}
+            span {font-family:$roboto; font-size:12px; color:$gray1; padding:15px 0 0; display:block;}
         }
     }
 }
 
 //홍보센터 - 뉴스센터 - view
 #contentsWrap.news_view {
-    .view_wrap {width:1180px; margin:0 auto;}
     .view_tit {
-        width:100%; border-top:2px solid $black; padding:40px 0; border-bottom:1px solid $gray4; display:table;
-        @extend %clearfix;
-        h5 {width:1050px; font-size:25px; line-height:40px; display:table-cell; vertical-align:middle; font-weight:$light;}
-        time {
-            width:130px; height:55px; display:table-cell; vertical-align:middle; color:$gray2; font-size:15px; text-align:center; border-left:1px solid $gray4;
-            span {font-size:25px; color:$black; padding:8px 0 0; display:block;}
-        }
+        width:100%; border-top:2px solid $black; padding:25px 0 20px; border-bottom:1px solid $gray4;
+        h5 {font-size:18px; line-height:28px; font-weight:$light;}
+        time {color:$gray2; font-size:15px; display:block; padding:15px 0 0;}
     }
     .view_contents {
-        padding:60px 40px; font-size:18px; line-height:32px; color:$gray2; border-bottom:1px solid $gray4;
+        padding:40px 0 35px; font-size:14px; line-height:24px; color:$gray2; border-bottom:1px solid $gray4;
         img {max-width:100%;}
     }
     .board_navigator {
-        text-align:center; padding:40px 0 0;
-        @extend %clearfix;
+        line-height:20px;
         > div {
-            width:300px;
-            span {font-size:15px; color:$gray2;}
+            padding:13px 0; border-bottom:1px solid $gray4; position:relative;
+            @extend %clearfix;
+            span {font-size:12px; color:$gray2; float:left; display:block; position:absolute;}
             a {
-                padding:15px 0 30px; display:block; font-size:22px; line-height:36px; position:relative;
-                @include transition(color, .2s);
-                &:before,
-                &:after {position:absolute; display:block; content:"";}
-                &:before {
-                    width:0; height:0; border-right-width:5px; border-right-color:$gray2; border-right-style:solid; bottom:0; left:0;
-                    border-top:3.5px solid transparent; border-bottom:3.5px solid transparent;
-                }
-                &:after {width:30px; height:1px; background-color:$gray2; bottom:3px; left:1px;}
-                &:hover {color:$violet; text-decoration:underline;}
+                width:100%; padding:0 0 0 45px; display:block; font-size:14px; float:left;
+                @include boxSizing;
+                @include text-overflow;
             }
-            p {padding:20px 0 0; font-size:22px; color:$gray3;}
-        }
-        .prev_board {
-            float:left; text-align:left;
-            &:hover {
-                &:after {background-color:$violet;}
-                &:before {border-right-color:$violet;}
-            }
-        }
-        .next_board {
-            float:right; text-align:right;
-            a {
-                &:before {left:auto; right:0; border-right-width:0; border-left-width:5px; border-left-style:solid; border-left-color:$gray2;}
-                &:after {left:auto; right:0;}
-                &:hover {
-                    &:before {border-left-color:$violet;}
-                    &:after {background-color:$violet;}
-                }
-            }
+            p {padding:20px 0 0; font-size:22px; color:$gray3; float:left;}
         }
         .list_link {
-            height:70px; margin:20px 0 0; display:inline-block; padding:0 50px; background-color:$violet; font-size:22px; color:$white; line-height:70px;
-            @include borderRadius(70px);
-            @include transition(background-color, .2s);
-            &:hover,
-            &:focus {background-color:$deep;}
+            height:50px; margin:40px 0 0; display:block; background-color:$violet; font-size:17px; color:$white; line-height:50px; text-align:center;
+            @include borderRadius(50px);
         }
     }
 }
 
 //홍보자료
 #contentsWrap.promotion_data {
+    padding:0 0 70px !important;
     .data_contents {
-        width:1320px; margin:0 auto;
         ul {
-            background-color:#f4f2f9; padding:55px 110px 50px 50px;
+            background-color:#f4f2f9; padding:10px 30px 40px 30px;
             @extend %clearfix;
         }
         li {
-            width:230px; float:left; margin:25px 0 0 60px;
+            width:47%; float:left; margin:30px 0 0 6%;
+            &:nth-of-type(odd) {margin:30px 0 0;}
         }
         a {
             display:block; font-size:18px;
-            &:hover,
-            &:focus {
-                .img_wrap:after {
-                    @include opacity(1);
-                    @include translate(0, 0);
-                }
-            }
             .img_wrap {
-                height:320px; overflow:hidden; position:relative;
-                &:after {
-                    width:100%; height:100%; display:block; content:"다운로드"; background-color:rgba(46, 0, 139, 0.9); position:absolute; top:0; left:0; background-image:url(../../images/common/down_icon02.png); text-align:center;
-                    padding:200px 0 0; color:$white;
-                    @include boxSizing;
-                    @include backgroundSolt(50%, 100px);
-                    @include opacity(0);
-                    @include translate(0, 30px);
-                    @include transition;
-                }
-                img {width:100%;}
+                height:0; padding:0 0 138%; overflow:hidden; position:relative;
+                @include boxShadow(10px 10px 40px -30px);
+                @include backgroundSoltC;
             }
             p {
-                height:56px; margin:20px 0 0; line-height:28px;
+                height:40px; margin:20px 0 0; line-height:20px; font-size:14px; overflow:hidden;
                 @include multi-text-overflow(2);
             }
         }
@@ -176,115 +128,78 @@
 
 //지속가능경영 - 텝
 .promotion_tab {
-    height:66px; text-align:center; font-size:18px;
+    height:50px; text-align:center; font-size:14px;
     ul {
-        width:1180px; display:inline-block;
+        margin:0 0 0 2px;
         @extend %clearfix;
     }
     li {
-        width:394px; height:66px; float:left; margin:0 0 0 -1px;
+        width:33.3%; float:left; margin:0 0 0 -1px;
         &:first-child {margin:0;}
     }
     a {
-        width:100%; height:66px; line-height:64px; color:$gray2; display:block; position:relative;
+        width:100%; height:50px; line-height:50px; color:$gray2; display:block; position:relative;
         @include borderSet(1px, solid, $gray4);
         @include boxSizing;
-        @include transition(border-color, .2s);
-        &:hover,
-        &:focus,
-        &.active {border-color:$violet; z-index:1;}
-        &.active {background-color:$violet; color:$white; border-color:$violet;}
+        &.active {background-color:$violet; color:$white; border-color:$violet; z-index:1;}
     }
 }
 
 //지속가능경영 - 컨텐츠 타이틀
 .ethical_tit {
-    padding:70px 0 0;
-    h5 {font-size:40px; line-height:60px;}
-    p {padding:20px 0 0; font-size:18px; line-height:32px; color:$gray2;}
+    padding:35px 0 0;
+    h5 {font-size:24px; line-height:35px;}
+    p {padding:15px 0 0; font-size:14px; line-height:24px; color:$gray2;}
     .img_wrap {
-        height:580px; background-image:url(../../images/promotion/green_img01.jpg); margin:45px 0 0;
-        @include backgroundSolt;
+        height:200px; background-image:url(../../images/promotion/green_img01.jpg); margin:35px 0 0; border-top-right-radius:40px;
+        @include backgroundSoltC;
     }
 }
 
 //지속가능경영 - 그린경영
-.ethical_green {
+#contentsWrap.ethical_green {
     padding:0 !important;
+    .promotion_tab {padding:0 25px;}
     .green_contents {
-        width:1180px; margin:0 auto;
+        padding:0 25px 50px 25px;
         .safety_wrap {
-            padding:100px 0 0;
-            h5 {font-size:40px;}
-            ol {
-                padding:50px 0 0;
-                @extend %clearfix;
-            }
+            padding:50px 0 0;
+            h5 {font-size:24px;}
             li {
-                width:580px; height:230px; padding:10px 0 0 170px;
+                padding:0 0 0 110px; -webkit-background-size:90px; background-size:90px; margin:30px 0 0;
                 @include backgroundSolt(0, 0);
                 @include boxSizing;
-                &:nth-of-type(odd) {float:left;}
-                &:nth-of-type(even) {float:right;}
                 &:nth-of-type(1) {background-image:url(../../images/common/green_icon01.gif);}
                 &:nth-of-type(2) {background-image:url(../../images/common/green_icon02.gif);}
                 &:nth-of-type(3) {background-image:url(../../images/common/green_icon03.gif);}
                 &:nth-of-type(4) {background-image:url(../../images/common/green_icon04.gif);}
                 &:nth-of-type(5) {background-image:url(../../images/common/green_icon05.gif);}
             }
-            strong {width:420px; display:block; font-size:22px; font-weight:$light; line-height:36px;}
-            p {color:$gray2; line-height:32px; padding:10px 0 0;}
+            strong {font-size:18px; font-weight:$light; line-height:26px;}
+            p {color:$gray2; line-height:24px; padding:15px 0 0; font-size:14px;}
         }
     }
     .green_activity {
-        background-color:#f4f2f9; padding:100px 0 140px;
-        .activity_wrap {width:1180px; margin:0 auto; text-align:center;}
-        h6 {font-size:40px;}
-        strong {
-            width:340px; height:100px; display:inline-block; background-color:$violet; font-weight:$light; color:$white; line-height:100px; font-size:25px; margin:55px 0 70px; position:relative;
-            @include borderRadius(100px);
-            &:after {
-                width:0; height:0; display:block; content:""; border-bottom:10px solid $gray1; border-left:11px solid transparent; border-right:11px solid transparent;
-                position:absolute; bottom:-40px; left:160px;
-            }
-        }
-        ol {
-            width:995px; height:280px; border:3px solid $blue; display:inline-block; padding:42px 47px; font-size:18px; line-height:28px; color:$white;
-            @include borderRadius(280px);
-            @include boxSizing;
-            @extend %clearfix;
-            li {
-                width:195px; height:195px; float:left; margin:0 0 0 -20px; background-color:rgba(0, 178, 202, .8); display:table;
-                @include borderRadius(100%);
-                &:first-child {margin:0;}
-                span {display:table-cell; vertical-align:middle;}
-            }
-        }
+        background-color:#f4f2f9; padding:50px 50px 70px;
+        .activity_wrap {text-align:center;}
+        h6 {font-size:24px;}
+        img {width:100%; max-width:400px; margin:25px 0 0;}
     }
 }
 
 //지속가능경영 - 나눔경영
-.ethical_share {
-    width:1180px; margin:0 auto;
+#contentsWrap.ethical_share {
     .share_contents {
-        padding:45px 0 0;
-        article {
-            padding:90px 0 0;
-            @extend %clearfix;
-            &:first-child {padding:0;}
-        }
-        figure {padding:0 0 40px;}
+        article {padding:35px 0 0;}
+        figure {padding:0 0 25px;}
         img {width:100%;}
-        h1 {
-            float:left; font-weight:$light; font-size:28px; line-height:44px; padding:0 0 0 80px; position:relative; margin:-2px 0 0;
-            &:after {width:50px; height:2px; display:block; content:""; position:absolute; left:0; top:20px; background-color:$black;}
-        }
-        p {width:840px; float:right; font-size:18px; line-height:32px; color:$gray2;}
+        h1 {font-weight:$light; font-size:18px;}
+        p {font-size:14px; line-height:24px; color:$gray2; padding:15px 0 0;}
     }
 }
 
 //지속가능경영 - 윤리경영
-.ethical_ethics {
+#contentsWrap.ethical_ethics {
     width:1180px; margin:0 auto;
     .ethics_contents {
         .ethics_tab {

@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, target-densitydpi=medium-dpi">
+    <meta name="format-detection" content="telephone=no">
     <!-- //공통적용헤더정보 -->
     <meta name="Description" content="효성굿스프링스">
     <meta property="og:type" content="website">
@@ -52,7 +53,7 @@
                             <li>
                                 <button type="button">Applications <i></i></button>
                                 <ul class="depth2">
-                                    <li><a href="">Oil, gas and chemicals</a></li>
+                                    <li><a href="" class="active">Oil, gas and chemicals</a></li>
                                     <li><a href="">Power</a></li>
                                     <li><a href="">Water</a></li>
                                     <li><a href="">Buildings</a></li>
@@ -116,7 +117,6 @@
         <div id="subLocation">
             <div class="location_box">
                 <ul class="location_list">
-                    <li class="home"><a href="../main/main.do">main page</a></li>
                     <li class="depth1">
                         <button type="button">About Us</button>
                         <ul class="under_depth">
@@ -141,34 +141,22 @@
         </div>
         <!-- //서브 로케이션 -->
     <div id="subContents">
-        <!-- 서브 페이지 슬로건 / 우측 좌측 하단 패럴럭스 아이콘 -->
-            <p id="subSlogan">A New Change Begins</p>
-            <div id="pallIcon">
-                <i class="right_icon"></i>
-                <i class="left_icon"></i>
-                <i class="right_bottom_icon"></i>
-                <i class="bottom_icon"></i>
-            </div>
-            <!-- //서브 페이지 슬로건 / 우측 좌측 하단 패럴럭스 아이콘 -->
-            <!-- 페이지 컨텐츠 -->
+
         <section id="contentsWrap" class="news_view">
             <div id="subTitle">
                 <h4 class="sub_tit">뉴스센터</h4>
             </div>
-            <article class="view_wrap js-scr-sec">
-                <div class="view_tit js-scr-box">
+            <article class="view_wrap">
+                <div class="view_tit">
                     <h5>효성굿스프링스, 펌프 아카데미 실시</h5>
-                    <time datetime="2019-08-02">
-                        2019 <br>
-                        <span>08.02</span>
-                    </time>
+                    <time datetime="2019-08-02">2019 08.02</time>
                 </div>
 
                 <!-- 에디터 영역 -->
-                <div class="view_contents js-scr-box">
+                <div class="view_contents">
                     <!-- 웹 접근성 - 이미지 alt값도 에디터에서 받아와야 함 -->
                     <img src="../../images/promotion/news_view01.jpg" alt="펌프 아카데미 이미지">
-                    <br><br><br>
+                    <br><br>
                     <p>효성굿스프링스는 지난 7월, 인도네시아, 베트남 기술세미나를 실시하였습니다.</p>
                     <br>
                     <p>당사의 제품 및 기술력 홍보, 브랜드 인지도 강화를 목적으로 실시한 이번 세미나는 동남아시아의 주요 고객들을 대상으로 효성굿스프링스의 고압 / 대형 펌프의 Line-Up은 물론, 당사 제품의 특장점, 납품 실적 등을 홍보하는 자리를 마련하였습니다.</p>
@@ -178,7 +166,7 @@
                 <!-- //에디터 영역 -->
 
                 <!-- 이전/다음 게시글 -->
-                <div class="board_navigator js-scr-box">
+                <div class="board_navigator">
                     <div class="prev_board">
                         <span>PREV</span>
                         <!-- 이전 게시글 있을때-->
@@ -189,7 +177,6 @@
                         <!--<p>이전 글이 없습니다.</p>-->
                         <!-- //이전 게시글 없을때-->
                     </div>
-                    <a href="" class="list_link" title="리스트로 돌아가기">목록</a>
                     <div class="next_board">
                         <span>NEXT</span>
                         <!-- 다음 게시글 있을때-->
@@ -200,6 +187,7 @@
                         <!--<p>다음 글이 없습니다.</p>-->
                         <!-- //다음 게시글 없을때-->
                     </div>
+                    <a href="" class="list_link" title="리스트로 돌아가기">목록</a>
                 </div>
                 <!-- 이전/다음 게시글 -->
             </article>

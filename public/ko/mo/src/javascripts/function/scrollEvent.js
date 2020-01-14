@@ -14,10 +14,10 @@ function scrollEvent(){
             var offsetTop = offset.top;
             var _this_h = $(this).innerHeight();
             var _bg_p = (winSc - offsetTop) / _this_h * 100;
-            $(this).css({"background-position-y":-_bg_p.toFixed(2) / 2 + "%"});
+            $(this).css({"background-position-y":-_bg_p.toFixed(2) + "%"});
         });
         //서브 비쥬얼 bg 패럴럭스
-        $subVisual.css({"background-position-y":-170 + winSc / 2});
+        $subVisual.css({"background-position-y":winSc / 2});
 
         //탑버튼 하단 위치 고정
         if (winSc > htmlH - 216 - winH) {
@@ -28,16 +28,11 @@ function scrollEvent(){
 
         //서브 로케이션 위치 고정 
         if($subLocation === false) {return}
-        if (winSc > 460) {
+        if (winSc > 240) {
             $subLocation.addClass("fixed");
         } else {
             $subLocation.removeClass("fixed");
         }
-
-        //서브 페이지 패럴럭스 아이콘
-        var _pallPos = Math.ceil(winSc / 30);
-        TweenMax.to($pallRight, 1, {y:-_pallPos, ease:es_step});
-        TweenMax.to($pallLeft, 1, {y:_pallPos, ease:es_step});
     });
 
     $topBtn.click(function () {
