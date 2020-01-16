@@ -39,7 +39,7 @@ img { vertical-align:top; image-rendering:-webkit-optimize-contrast;}
 caption { width:1px; height:1px; overflow:hidden; margin:-1px;}
 
 //퍼블 가이드용
-/*.guide_line {
+.guide_line {
     div {
         &:after,
         &:before {width:1px; height:100%; display:block; content:""; position:fixed; background-color:$gray1; z-index:1000; opacity:0.3;}
@@ -51,7 +51,7 @@ caption { width:1px; height:1px; overflow:hidden; margin:-1px;}
             &:before {left:50%;}
         }
     }
-}*/
+}
 
 //히든 텍스트
 .hidden-txt,
@@ -232,9 +232,9 @@ legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; hei
         .upload_caution {
             padding:5px 0 0; font-size:12px; color:#888;
             p {
-                margin:10px 0 0; position:relative; padding:0 0 0 22px;
+                margin:10px 0 0; position:relative; padding:0 0 0 22px; line-height:18px;
                 &:before {
-                    width:15px; height:15px; display:block; content:""; background:url(../../images/common/caution_icon.gif) 0 0 no-repeat; position:absolute; left:0; top:-1px;
+                    width:15px; height:15px; display:block; content:""; background:url(../../images/common/caution_icon.gif) 0 0 no-repeat; position:absolute; left:0; top:1px;
                     -webkit-background-size:15px; background-size:15px;
                 }
             }

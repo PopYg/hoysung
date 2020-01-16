@@ -38,7 +38,8 @@
             display:block; padding:30px 40px;
             @include transition(background-color, .2s);
             @extend %clearfix;
-            &:hover {
+            &:hover,
+            &:focus {
                 background-color:#f4f2f9;
                 h1 {
                     color:$violet;

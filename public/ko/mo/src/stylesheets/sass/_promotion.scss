@@ -13,7 +13,7 @@
                 width:70%; float:left; margin:0 0 0 3%;
                 @extend %clearfix;
                 input[type=text] {
-                    width:calc(100% - 42px); height:42px; border-bottom:1px solid $gray4; float:left; padding:0 10px; font-size:14px;
+                    width:calc(100% - 42px); height:42px; border-bottom:1px solid $gray4; float:left; padding:0 10px; font-size:14px; line-height:42px;
                     @include placeholder(14px, #888, 42px);
                     @include boxSizing;
                 }
@@ -200,22 +200,19 @@
 
 //지속가능경영 - 윤리경영
 #contentsWrap.ethical_ethics {
-    width:1180px; margin:0 auto;
     .ethics_contents {
         .ethics_tab {
-            padding:50px 0 0;
+            padding:25px 0 0;
             @extend %clearfix;
             li {
-                float:left; margin:0 0 0 30px;
+                float:left; margin:0 0 0 20px;
                 &:first-child {margin:0;}
             }
             button {
-                font-size:18px; color:$gray2; font-weight:$bold;
+                font-size:14px; color:$gray2;
                 @include transition(color, .3s);
-                &:hover,
-                &:focus,
                 &.active {
-                    color:$violet; position:relative;
+                    color:$violet; position:relative; font-weight:$bold;
                     &:after {width:100%;}
                 }
                 &:after {
@@ -226,7 +223,7 @@
         }
     }
     .ethics_wrap {
-        height:3307px; position:relative;
+        height:1000px; position:relative;
         > div {
             position:absolute; top:0;
             &:first-child {
@@ -238,10 +235,11 @@
         }
     }
     .program_wrap {
+        width:100%;
         .ethical_tit {
             text-align:center;
             h5, p {text-align:left;}
-            img {margin:70px 0 0;}
+            img {width:100%; max-width:400px; margin:35px 0 0;}
         }
         .history_txt {
             line-height:32px;
@@ -249,20 +247,15 @@
             span {display:block; padding:0 0 0 99px;}
         }
     }
-    .guidelines h6 {padding:70px 0 0;}
-    h6 {padding:100px 0 0; font-size:40px;}
-    strong {font-size:22px; font-weight:$light; display:block; padding:50px 0 0;}
+    .guidelines h6 {padding:35px 0 0;}
+    h6 {padding:50px 0 0; font-size:24px;}
+    strong {font-size:18px; font-weight:$light; display:block; padding:25px 0 0;}
     dl {
-        padding:35px 0 0; font-size:18px;
-        dt {color:$black;}
-        dd {color:$gray2; padding:10px 0 0 25px; line-height:32px;}
+        padding:20px 0 0; font-size:14px;
+        dt {color:$black; line-height:20px;}
+        dd {color:$gray2; padding:10px 0 0 25px; line-height:24px;}
     }
 }
-
-
-
-
-
 
 
 

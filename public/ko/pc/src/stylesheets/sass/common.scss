@@ -25,13 +25,9 @@ select {
     @include transition(border-color, .2s);
     &:focus { border-color:$violet !important;}
 }
-
 ::selection { background:$violet; color:$white; text-shadow:none; }
-
 ::-moz-selection { background:$violet; color:$white; text-shadow:none; }
-
 img { vertical-align:top; image-rendering:-webkit-optimize-contrast;}
-
 .popup_dimmed {
     width:100%; height:100%; position:fixed; z-index:300; background-color:$black; display:none; top:0;
     @include opacity(0);
@@ -66,13 +62,14 @@ caption { width:1px; height:1px; overflow:hidden; margin:-1px;}
 
 //히든 텍스트
 .hidden-txt,
-legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; height:0; line-height:1px; position:absolute;}
+legend {width:0; height:0; overflow:hidden; display:inline-block; text-indent:-9999px; line-height:1px; position:absolute;}
 
 #container {
     overflow:hidden;
     #subVisual {
         height:460px; margin:0 0 0 70px; position:relative;
         @include backgroundSolt(50%, -170px);
+        &.applications_visual {background-image:url(../../images/applications/sub_visual.jpg);}
         &.company_visual {background-image:url(../../images/company/sub_visual.jpg);}
         &.promotion_visual {background-image:url(../../images/promotion/sub_visual.jpg);}
         &.service_visual {background-image:url(../../images/service/sub_visual.jpg);}
@@ -97,91 +94,81 @@ legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; hei
     width:100%; height:70px; position:relative; z-index:100;
     @include boxSizing;
     &.fixed {
-        .location_box {position:fixed; top:0; background-color:$violet;}
+        .location_box {
+            position:fixed; top:0;
+            @include boxShadow(0 -15px 40px 0px $gray1);
+        }
         .location_list {
             > li {
-                &:before,
-                &:after {background-color:$white;}
-                button {
-                    color:$white;
-                    &:after {border-top-color:$white;}
-                }
-                &.home a {background-image:url(../../images/common/sub_home_icon_on.png);}
+                button {border-color:$gray4; border-top:0; border-bottom:0;}
+                &.home a {width:260px; -ms-background-position-x:-40px; background-position-x:-40px;}
             }
         }
     }
     .location_box {
-        width:100%; height:70px; position:absolute; padding:0 70px; font-size:15px;
-        @include transition(background-color, .2s);
+        width:100%; height:56px; position:absolute; padding:0 70px; font-size:15px; background-color:$white;
+        @include boxSizing;
     }
     .location_list {
+        min-width:1280px;
         @extend %clearfix;
         > li {
-            width:212px; height:70px; float:left; position:relative; overflow:hidden; padding:0 6px 0 0;
+            width:220px; height:56px; float:left; position:relative; overflow:hidden; margin:0 0 0 -1px;
+            &:nth-of-type(1) {z-index:3;}
+            &:nth-of-type(2) {z-index:2;}
+            &:nth-of-type(3) {z-index:1;}
             &:hover,
             &:focus {
+                z-index:10;
                 button {
+                    border-color:$gray4;
                     &:after {@include rotate(180);}
                 }
             }
-            &:before,
-            &:after {width:8px; height:1px; background-color:$gray3; display:block; content:""; position:absolute; right:0;}
-            &:before {
-                top:37px;
-                @include rotate(-45);
-            }
-            &:after {
-                top:31px;
-                @include rotate(45);
-            }
+            &:after {width:1px; height:24px; display:block; content:""; position:absolute; right:0; top:16px; background-color:$gray4;}
             button, a {
                 width:100%; text-align:left; color:$gray2;
                 @include boxSizing;
             }
             button {
-                height:70px; position:relative; display:block; padding:0 0 0 15px; font-size:15px;
+                height:56px; position:relative; display:block; padding:0 0 0 15px; font-size:15px;
+                @include borderSet(1px, solid, $white);
+                @include transition(border-color, .2s);
                 &:after {
-                    width:0; height:0; display:block; content:""; border-top-style:solid; border-top-color:#636363; border-top-width:6px; position:absolute; right:16px; top:32px;
+                    width:0; height:0; display:block; content:""; border-top-style:solid; border-top-color:#636363; border-top-width:6px; position:absolute; right:20px; top:25px;
                     border-left-width:4px; border-right-width:4px; border-left-style:solid; border-right-style:solid; border-right-color:transparent; border-left-color:transparent;
                     @include transition;
                 }
             }
             &.home {
-                width:50px; margin:0 0 0 -16px;
+                width:auto;
                 a {
-                    width:50px; height:70px; display:block; background-image:url(../../images/common/sub_home_icon.png); text-indent:-9999px;
-                    @include backgroundSolt(50%, 48%);
+                    width:38px; height:56px; display:block; background-image:url(../../images/common/sub_home_icon.gif); text-indent:-9999px;
+                    @include backgroundSolt(0, 50%);
+                    @include transition(all, .4s);
                 }
             }
-            &.depth2 {
-                &:after,
-                &:before {display:none;}
-            }
             .under_depth {
-                background-color:$violet; padding:30px 0; border-bottom-right-radius:37px;
+                border:1px solid $gray4; padding:20px 0; border-bottom-right-radius:37px; background-color:$white;
                 li {
-                    padding:25px 0 0;
+                    padding:20px 0 0;
                     &:first-child {padding:0;}
                 }
                 a {
-                    color:$white; position:relative; margin:0 0 0 20px;
+                    position:relative; margin:0 0 0 20px;
                     &:after {
                         width:100%; height:1px; content:""; background-color:$white; display:block; position:absolute; bottom:0; left:0;
-                        @include scaleX(0);
-                        @include transition(transform, .2s);
+                        @include transition(color, .2s);
                     }
                     &:hover,
                     &:focus,
-                    &.active {
-                        &:after {@include scaleX(1);}
-                    }
+                    &.active {color:$violet;}
                 }
             }
         }
     }
 }
 #wrap {position:relative;}
-
 
 #subContents {
     position:relative;
@@ -351,6 +338,7 @@ legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; hei
             width:1px; height:30px; display:block; content:""; background-color:$black; position:absolute; top:0; left:50%;
             @include transition(transform, .4s);
         }
+        &:focus,
         &:hover {
             color:$violet;
             @include translate(0, 10px);
@@ -378,40 +366,4 @@ legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; hei
     }
     .popup_wrap {padding:55px 60px 0; display:none;}
 }
-
-//게시판 paging
-#listPage {
-    position:relative; margin:70px 0 0; text-align:center;
-    .page_btn {
-        display:inline-block;
-        button, a {
-            width:36px; height:36px; float:left; line-height:34px; display:inline-block; margin:0 3px; background-color:$white;
-            border-width:1px; border-style:solid; border-color:$gray4; color:$gray2; font-weight:$light;
-            @include transition;
-            @include backgroundSolt;
-            @include boxSizing;
-            &.prev_end_btn,
-            &.prev_btn,
-            &.next_btn,
-            &.next_end_btn {text-indent:-9999px; overflow:hidden;}
-            &.prev_end_btn { background-image:url(../../images/icon/page_prev_all.gif);}
-            &.prev_btn {
-                background-image:url(../../images/icon/page_prev.gif); margin:0 17px 0 5px;
-            }
-            &.next_btn {
-                background-image:url(../../images/icon/page_prev.gif); margin:0 5px 0 17px;
-                @include rotate(180);
-            }
-            &.next_end_btn {
-                background-image:url(../../images/icon/page_prev_all.gif);
-                @include rotate(180);
-            }
-            &:hover,
-            &:focus {border-color:$violet;}
-            &.active {color:$white; background-color:$violet; border-color:$violet;}
-        }
-    }
-}
-
-
 
