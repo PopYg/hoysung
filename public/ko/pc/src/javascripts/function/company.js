@@ -6,7 +6,6 @@ function companyJS(){
     $locationSec.each(function () {
         var _this = $(this);
         var $openBtn = _this.find(".open_btn");
-
         $openBtn.click(function () {
             var _thisBtn = $(this);
             var _thisLi = _thisBtn.parent().parent();

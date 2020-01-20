@@ -124,29 +124,34 @@
 }
 
 @mixin boxAni(){
-	&:hover {
-		.box_link_dot {
+	&:hover,
+	&:focus {
+		.img_wrap {
 			&:after,
 			&:before { width:100%; @include opacity(1);}
 		}
-		&:after,
-		&:before { height:100%; @include opacity(1);}
+		p {
+			&:after,
+			&:before { height:100%; @include opacity(1);}
+		}
 	}
-	&:after,
-	&:before {
-		width:2px; height:0; position:absolute; display:block; content:""; background-color:$blue;
-		@include transition(all,.4s);
-	}
-	&:after { right:0; top:0;}
-	&:before { left:0; bottom:0;}
-	.box_link_dot {
+	p {
 		&:after,
 		&:before {
-			width:0; height:2px; position:absolute; display:block; content:""; background-color:$blue;
-			@include transition(all,.4s);
+			width:2px; height:0; position:absolute; display:block; content:""; background-color:$violet;
+			@include transition(all, .4s);
 		}
 		&:after { right:0; top:0;}
 		&:before { left:0; bottom:0;}
+	}
+	.img_wrap {
+		&:after,
+		&:before {
+			width:0; height:2px; position:absolute; display:block; content:""; background-color:$violet;
+			@include transition(all,.4s);
+		}
+		&:after { right:0; top:-1px;}
+		&:before { left:0; bottom:-1px;}
 	}
 }
 

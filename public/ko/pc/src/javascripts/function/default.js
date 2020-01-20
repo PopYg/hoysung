@@ -18,11 +18,49 @@ $window.load(function () {
     $(window).scroll(function () {
         winSc = $(this).scrollTop();
     });
+    /**
+     * Shift + Tab
+     * @param callback
+     * @param event
+     * @returns {boolean}
+     * @constructor
+     */
+    function Shifttab(callback, event){
+        var e = event;
+        var charCode = e.which || e.keyCode;
+        if (e.shiftKey === true) {
+            if (charCode === 9) {
+                callback();
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Tab
+     * @param callback
+     * @param event
+     * @returns {boolean}
+     * @constructor
+     */
+    function Tab(callback, event){
+        var e = event;
+        var charCode = e.which || e.keyCode;
+        if (e.shiftKey === false) {
+            if (charCode === 9) {
+                callback();
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
     main();
     layout();
     scrollEvent();
     locationJS();
-    object();
     applicationsJS();
     companyJS();
     productsJS();

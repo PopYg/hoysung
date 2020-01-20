@@ -1,110 +1,72 @@
 function layout() {
     var $header = $("#header");
     var $gnb = $header.find("#gnb"),
-        $gnbOpenDepth = $gnb.find(".open_depth"),
-        $gnbAllDepth = $gnb.find(".all_depth"),
-        $gnbAllDepthWrap = $gnbAllDepth.find(".depth_wrap");
-    var _allDepthH = $gnbAllDepthWrap.innerHeight();
+        $gnbOpenDepth = $gnb.find(".depth_one"),
+        $gnbTwoDepth = $gnb.find(".depth_two"),
+        $allNav = $header.find("#allNav");
 
     var $gnbDimmed = $("#gnbDimmed");
     var $allNavBtn = $("#allNavBtn");
 
-    /*//gnb open/close
-    $gnbOpenDepth.find("li a").mouseenter( function () {
-        gnbOpen(_allDepthH);
+    //gnb open/close
+    $gnbOpenDepth.find("> li > a").on("mouseenter focusin", function() {
+        var _this = $(this);
+        $header.addClass("gnb_open");
+        TweenMax.to($header, .4, {height:450, ease:es_step});
+        $gnbTwoDepth.css({display:"none"});
+        _this.siblings("ul").css({display:"block"});
+        TweenMax.to($gnbDimmed, .3, {opacity:.5, display:"block", ease:es_step});
     });
-    $gnbAllDepth.mouseleave(function () {
+    $gnbOpenDepth.on("mouseleave", function () {
         gnbClose();
     });
+    $gnbOpenDepth.find("> li").eq(-1).find("li").eq("-1").find("a").keydown(function (e) {
+        var tab = Tab(function(){
+            gnbClose();
+        }, e);
+        if (tab) return false;
+    });
 
-    function gnbOpen(_gnbHeight) {
-        $gnbAllDepthWrap.addClass("open");
-        TweenMax.to($gnbAllDepth, .5, {height: _gnbHeight, ease: es_step});
-        TweenMax.to($gnbDimmed, .5, {display:"block", opacity:.8, ease:es_step});
+    function gnbClose(){
+        TweenMax.to($header, .4, {
+            height:100,
+            onComplete:function(){
+                $header.removeClass("gnb_open");
+                $gnbTwoDepth.css({display:"none"});
+                }, ease:es_step
+        });
+        TweenMax.to($gnbDimmed, .3, {opacity:0, display:"none", ease:es_step});
     }
 
-    function gnbClose() {
-        $gnbAllDepthWrap.removeClass("open");
-        TweenMax.to($gnbAllDepth, .5, {height: 0, ease: es_step});
-        TweenMax.to($gnbDimmed, .5, {display:"none", opacity:0, ease:es_step});
-    }*/
-
-    //헤더 뉴스 모션
-    var $headerNews = $header.find(".header_news"),
-        $headerNewsObject = $headerNews.find("li"),
-        _headerNewsLength = $headerNews.find("li").length;
-
-    var headerNewsCrr = {};
-    Object.defineProperty(headerNewsCrr, 'number', {
-        get: function () {
-            return this.num || 0;
-        },
-        set: function (_index) {
-            _index = _index % _headerNewsLength;
-            TweenMax.to($headerNewsObject.eq(_index-1), .3, {y: -20});
-            TweenMax.fromTo($headerNewsObject.eq(_index), .3, {y: 20}, {y: 0});
-            this.num = _index;
-        }
-    });
-
-    var headerNewsDuration = 3000;
-    var headerNewsTimer = setInterval(visualSet, headerNewsDuration);
-
-    function visualSet(){
-        headerNewsCrr.number++;
-    }
-
-    $headerNews.find("a").mouseenter(function () {
-        clearInterval(headerNewsTimer);
-    }).mouseleave(function () {
-        headerNewsTimer = setInterval(visualSet, headerNewsDuration);
-    });
-
-    //장바구니, 검색 오픈
-    var $headerCartSearchBtn = $header.find(".cart_btn, .search_btn");
-    var $headerPopupClose = $header.find(".header_popup_close");
-    $headerCartSearchBtn.click(function () {
-        TweenMax.to($(this).siblings(".header_popup"), .3, {y:0, opacity:1, display:"block", ease:es_step});
-    });
-
-    $headerPopupClose.click(function () {
-        TweenMax.to($(this).parent(".header_popup"), .3, {y:20, opacity:0, display:"none", ease:es_step});
-    });
-
-    //gnb_search
-    /*$allNavBtn.click(function () {
-        var _this = $(this);
-        if (!_this.hasClass("active")) {
-            _this.addClass("active");
-            TweenMax.to($headerSiteMap, .3, {height:525});
-            TweenMax.to($navDimmed, .3, {display:"block", opacity:.6, ease:es_step});
-            $fpNav.css({display: "none"});
-            navOpen = true;
+    //allNav open/close
+    $allNavBtn.click(function () {
+        if(!$header.hasClass("all_nav_open")){
+            $header.addClass("all_nav_open");
+            TweenMax.to($header, .4, {height:580, ease:es_step});
+            TweenMax.to($allNav, .4, {opacity:1, display:"block", ease:es_step});
         } else {
-            _this.removeClass("active");
-            TweenMax.to($headerSiteMap, .3, {height:0});
-            TweenMax.to($navDimmed, .3, {display:"none", opacity:0, ease:es_step});
-            $fpNav.css({display: "block"});
-            navOpen = false;
+            $header.removeClass("all_nav_open");
+            TweenMax.to($header, .4, {height:100, ease:es_step});
+            TweenMax.to($allNav, .4, {opacity:0, display:"none", ease:es_step});
         }
-    });*/
+    });
 
     //footer
     var $familySite = $("#familySite");
     var $familyBtn = $familySite.find("button");
-    var $familySiteH = $familySite.find('div').height() + 41;
+    var $familySiteH = $familySite.find('div').height() + 50;
     $familyBtn.click(function () {
-        if(!$familySite.hasClass("on")){
+        if(!$familySite.hasClass("active")){
             TweenMax.to($familySite, .2, {height:$familySiteH});
-            $familySite.addClass("on");
+            $familySite.addClass("active");
         } else {
-            TweenMax.to($familySite, .2, {height: 41});
-            $familySite.removeClass("on");
+            TweenMax.to($familySite, .2, {height: 50});
+            $familySite.removeClass("active");
         }
     });
     $familySite.mouseleave(function () {
-        TweenMax.to($familySite, .2, {height: 41});
-        $familySite.removeClass("on");
+        TweenMax.to($familySite, .2, {height: 50});
+        $familySite.removeClass("active");
     });
 }
 

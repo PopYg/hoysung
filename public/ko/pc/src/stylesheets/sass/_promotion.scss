@@ -30,9 +30,20 @@
                 }
             }
         }
+        .search_result {
+            padding:50px 0 0; font-size:18px; color:$gray2;
+            strong {color:$violet;}
+        }
     }
+
+    .list_no_result {
+        text-align:center; margin:140px 0 40px; padding:120px 0 0; font-size:22px; background-image:url(../../images/promotion/no_result_icon.gif); color:$gray2;
+        @include backgroundSolt(50%, 0);
+        strong {color:$violet;}
+    }
+
     .list_wrap {
-        border-top:2px solid $black; margin:48px 0 0;
+        border-top:2px solid $black; margin:50px 0 0;
         article {border-bottom:1px solid $gray4;}
         a {
             display:block; padding:30px 40px;
@@ -134,7 +145,7 @@
     }
 }
 
-//홍보자료
+//홍보센터 - 홍보자료
 #contentsWrap.promotion_data {
     .data_contents {
         width:1320px; margin:0 auto;
@@ -175,7 +186,7 @@
     }
 }
 
-//지속가능경영 - 텝
+//홍보센터 - 지속가능경영 - 텝
 .promotion_tab {
     height:66px; text-align:center; font-size:18px;
     ul {
@@ -198,18 +209,19 @@
     }
 }
 
-//지속가능경영 - 컨텐츠 타이틀
+//홍보센터 - 지속가능경영 - 컨텐츠 타이틀
 .ethical_tit {
     padding:70px 0 0;
     h5 {font-size:40px; line-height:60px;}
     p {padding:20px 0 0; font-size:18px; line-height:32px; color:$gray2;}
     .img_wrap {
         height:580px; background-image:url(../../images/promotion/green_img01.jpg); margin:45px 0 0;
+        border-top-right-radius:100px; -webkit-border-top-right-radius:100px;
         @include backgroundSolt;
     }
 }
 
-//지속가능경영 - 그린경영
+//홍보센터 - 지속가능경영 - 그린경영
 .ethical_green {
     padding:0 !important;
     .green_contents {
@@ -264,7 +276,7 @@
     }
 }
 
-//지속가능경영 - 나눔경영
+//홍보센터 - 지속가능경영 - 나눔경영
 .ethical_share {
     width:1180px; margin:0 auto;
     .share_contents {
@@ -284,7 +296,7 @@
     }
 }
 
-//지속가능경영 - 윤리경영
+//홍보센터 - 지속가능경영 - 윤리경영
 .ethical_ethics {
     width:1180px; margin:0 auto;
     .ethics_contents {
@@ -344,19 +356,4 @@
         dd {color:$gray2; padding:10px 0 0 25px; line-height:32px;}
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
