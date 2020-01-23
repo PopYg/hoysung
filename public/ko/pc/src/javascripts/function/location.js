@@ -15,7 +15,6 @@ function locationJS(){
             }
         }
     });
-
     $(".location_list > li").on("mouseleave", function () {
         $subLocation.find("button").removeClass("active");
         TweenMax.to($(".location_list > li"), .3, {height: $subLocationH, ease: es_step});

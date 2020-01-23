@@ -4,7 +4,6 @@ function layout() {
         $gnbOpenDepth = $gnb.find(".depth_one"),
         $gnbTwoDepth = $gnb.find(".depth_two"),
         $allNav = $header.find("#allNav");
-
     var $gnbDimmed = $("#gnbDimmed");
     var $allNavBtn = $("#allNavBtn");
 
@@ -26,7 +25,6 @@ function layout() {
         }, e);
         if (tab) return false;
     });
-
     function gnbClose(){
         TweenMax.to($header, .4, {
             height:100,

@@ -39,7 +39,7 @@ caption { width:1px; height:1px; overflow:hidden; margin:-1px;}
 .hidden-txt,
 legend {width:0; height:0; overflow:hidden; display:inline-block; text-indent:-9999px; line-height:1px; position:absolute;}
 
-#warp {position:relative;}
+#wrap {position:relative;}
 #container {
     overflow:hidden; position:relative;
     #subVisual {
@@ -159,7 +159,12 @@ legend {width:0; height:0; overflow:hidden; display:inline-block; text-indent:-9
         @include borderRadius(100%);
     }
     &:after {width:55px; height:2px; background-color:$gray3; top:7px; right:-72px;}
+
+    //메인 우측 슬로건
+    &.main_slogan {top:1220px}
 }
+
+
 
 //서브 페이지 패럴럭스 아이콘
 #pallIcon {
@@ -183,6 +188,27 @@ legend {width:0; height:0; overflow:hidden; display:inline-block; text-indent:-9
         &.bottom_icon {
             top:4000px; right:-300px;
             @include rotate(240);
+        }
+    }
+    &.main_pall_icon {
+        i {
+            &.right_icon {top:1150px; right:-480px;}
+            &.left_icon {
+                top:1700px; left:-300px;
+                @include rotate(60);
+            }
+            &.right_bottom_icon {
+                top:2745px; left:50%; margin:0 0 0 -200px;
+                @include rotate(120);
+            }
+            &.left_bottom_icon {
+                top:3200px; left:-400px;
+                @include rotate(-160);
+            }
+            &.bottom_icon {
+                top:auto; bottom:-220px; left:50%; margin:0 0 0 -790px;
+                @include rotate(0);
+            }
         }
     }
 }
@@ -347,18 +373,20 @@ legend {width:0; height:0; overflow:hidden; display:inline-block; text-indent:-9
         @include boxShadow(20px 20px 50px -30px #333);
         &:first-child {margin:0;}
     }
-    .team_name {padding:92px 0 0 130px; font-size:15px; color:$violet;}
-    dl {
-        padding:50px 0 0 30px;
-        @extend %clearfix;
-    }
-    dt {float:left; font-size:18px; font-weight:$bold;}
-    dd {
-        float:left; padding:0 0 0 42px;
-        p {
-            padding:15px 0 0;
-            &:first-child {padding:0;}
+    .team_name {padding:92px 0 0; text-align:center; font-size:15px; color:$violet;}
+    .info_wrap {
+        padding:50px 30px 0;
+        .name_mail {
+            float:left;
+            strong {font-size:18px;}
+            a {
+                display:block; font-size:15px; margin:15px 0 0;
+                @include transition(color, .2s);
+                &:hover,
+                &:focus {color:$violet;}
+            }
         }
+        .tel {float:right; font-size:15px;}
     }
 }
 

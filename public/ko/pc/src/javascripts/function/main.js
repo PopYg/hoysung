@@ -11,7 +11,6 @@ function main() {
         _solutionIndex = _solutionIndex % 2;
         solutionRolling(_solutionIndex);
     });
-
     function solutionRolling(_index){
         TweenMax.to($solutionsImg, .3, {opacity:0});
         TweenMax.to($solutionsImg.eq(_index), .3, {opacity:1});

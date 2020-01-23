@@ -63,9 +63,7 @@ $window.load(function () {
     locationJS();
     applicationsJS();
     companyJS();
-    productsJS();
     promotionJS();
-    serviceJS();
     etcJS();
 });
 function applicationsJS(){
@@ -102,7 +100,6 @@ function etcJS(){
     $termsAnchor.each(function () {
         _anchorTop.push($(this).offset().top - 70);
     });
-
     $termsTab.click(function () {
         var _this = $(this);
         var _index= _this.parent().index();
@@ -116,7 +113,6 @@ function layout() {
         $gnbOpenDepth = $gnb.find(".depth_one"),
         $gnbTwoDepth = $gnb.find(".depth_two"),
         $allNav = $header.find("#allNav");
-
     var $gnbDimmed = $("#gnbDimmed");
     var $allNavBtn = $("#allNavBtn");
 
@@ -138,7 +134,6 @@ function layout() {
         }, e);
         if (tab) return false;
     });
-
     function gnbClose(){
         TweenMax.to($header, .4, {
             height:100,
@@ -202,7 +197,6 @@ function locationJS(){
             }
         }
     });
-
     $(".location_list > li").on("mouseleave", function () {
         $subLocation.find("button").removeClass("active");
         TweenMax.to($(".location_list > li"), .3, {height: $subLocationH, ease: es_step});
@@ -235,7 +229,6 @@ function main() {
         _solutionIndex = _solutionIndex % 2;
         solutionRolling(_solutionIndex);
     });
-
     function solutionRolling(_index){
         TweenMax.to($solutionsImg, .3, {opacity:0});
         TweenMax.to($solutionsImg.eq(_index), .3, {opacity:1});
@@ -290,9 +283,6 @@ function main() {
 
 
 
-function productsJS(){
-
-}
 function promotionJS(){
     var $ethicalEthics = $(".ethical_ethics");
     var $ethicsTab = $ethicalEthics.find(".ethics_tab button");
@@ -368,7 +358,3 @@ function scrollEvent(){
 
 
 
-
-function serviceJS(){
-
-}

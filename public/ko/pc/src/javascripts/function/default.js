@@ -63,8 +63,6 @@ $window.load(function () {
     locationJS();
     applicationsJS();
     companyJS();
-    productsJS();
     promotionJS();
-    serviceJS();
     etcJS();
 });

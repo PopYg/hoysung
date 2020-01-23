@@ -5,14 +5,21 @@
     #mainVisual {
         height:980px; padding:0 0 0 70px; overflow:hidden; position:relative;
         #mainVideo {
-            height:100%; position:absolute; left:50%; margin:0 0 0 -50%;
+            height:108%; position:absolute; left:50%; margin:0 0 0 -50%;
             @include translate(70px, 0);
         }
         .txt_wrap {
-            position:absolute; bottom:100px; left:170px; font-family:$slab; color:$white; letter-spacing:1.5px; text-shadow:5px 5px 2px $black;
+            position:absolute; bottom:100px; left:170px; font-family:$slab; color:$white; letter-spacing:1.5px; text-shadow:5px 5px 10px #000;
             p {font-size:40px;}
             h3 {font-size:60px; padding:25px 0 0; font-weight:$light;}
         }
+        &:before,
+        &:after {
+            position:absolute; display:block; content:""; z-index:10;
+            @include backgroundSolt;
+        }
+        &:before {width:89px; height:88px; background-image:url(../../images/common/sub_visual_mask_left.png); left:70px; top:100px;}
+        &:after {width:286px; height:53px; background-image:url(../../images/common/sub_visual_mask_right.png); right:0; bottom:0;}
     }
 
     //메인 어플리케이션
@@ -94,7 +101,7 @@
 
     //메인 솔루션
     .main_solutions {
-        height:560px; margin:75px 170px 0 0; padding:0 0 0 170px; background-image:url(../../images/main/solution_bg.jpg);
+        height:560px; margin:75px 170px 0 0; padding:0 0 0 170px; background-image:url(../../images/main/solution_bg.png);
         @include backgroundSolt(0, 13px);
         h4 {font-size:40px;}
         @media screen and (max-width:#{1600px}) {
@@ -209,14 +216,26 @@
         li {
             width:30%; float:left; margin:0 0 0 5%;
             &:first-child {margin:0;}
-            a {display:block;}
+            a {
+                display:block;
+                &:hover,
+                &:focus {
+                    .img_wrap div {@include scale(1.15);}
+                    p.subject {color:$violet;}
+                }
+            }
             .img_wrap {
-                height:220px;
-                @include backgroundSoltC;
+                height:220px; overflow:hidden;
+                div {
+                    height:100%;
+                    @include backgroundSoltC;
+                    @include transition;
+                }
             }
             p.subject {
                 height:68px; font-size:25px; line-height:34px; margin:20px 0 0;
                 @include multi-text-overflow(2);
+                @include transition(color, .2s);
             }
             p.txt {
                 height:64px; font-size:18px; line-height:32px; margin:15px 0 0;
