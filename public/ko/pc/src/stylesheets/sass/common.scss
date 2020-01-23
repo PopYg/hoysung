@@ -59,6 +59,7 @@ legend {width:0; height:0; overflow:hidden; display:inline-block; text-indent:-9
         &:after {width:286px; height:53px; background-image:url(../../images/common/sub_visual_mask_right.png); right:0; bottom:0;}
         .visual_txt {
             padding:230px 0 0 130px; color:$white;
+
             h3 {font-size:50px; font-family:$slab; font-weight:$light;}
             p {font-size:18px; padding:25px 0 0;}
         }
@@ -186,7 +187,7 @@ legend {width:0; height:0; overflow:hidden; display:inline-block; text-indent:-9
             @include rotate(-160);
         }
         &.bottom_icon {
-            top:4000px; right:-300px;
+            top:4300px; right:-300px;
             @include rotate(240);
         }
     }
