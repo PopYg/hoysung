@@ -1,8 +1,8 @@
 function scrollEvent(){
     var $topBtn = $("#topBtn");
     var $pallIcon = $("#pallIcon");
-    var $pallRight = $pallIcon.find(".right_icon, .right_bottom_icon");
-    var $pallLeft = $pallIcon.find(".left_icon");
+    var $pallRight = $pallIcon.find(".right_icon, .right_bottom_icon, .bottom_icon");
+    var $pallLeft = $pallIcon.find(".left_icon, .left_bottom_icon");
     var $subVisual = $("#subVisual");
 
     $(window).scroll(function () {
