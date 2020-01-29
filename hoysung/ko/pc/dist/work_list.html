@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+	<title>효성 굿스프링스 관리자</title>
+	<style type="text/css">
+
+		body{width:100%; height:100%;  font-family:vernada; margin:20px auto;}
+		#secretWrapper{width :98%; margin:0 auto;}
+		#secretWrapper h1{font-size:30px; text-align:center; margin:0 0 119px;}
+		#secretWrapper h2{font-size:20px; margin:30px 0 20px;}
+		#secretWrapper table{width:100%; border-top:1px solid #99948e; border-left:1px solid #99948e; border-collapse:collapse;}
+		#secretWrapper table .title1{background-color:#e6002d; color:#fff; padding:7px 0 5px; text-align:center;}
+		#secretWrapper table .title2{background-color:#f7f7f7; color:#707070; padding:7px 0 5px; text-align:center;}
+		#secretWrapper table .title3{background-color:#dfdfdf; color:#707070; padding:7px 0 5px; text-align:center;}
+		#secretWrapper table th{border-right:1px solid #99948e; border-bottom:1px solid #99948e; padding:5px 0;}
+		#secretWrapper table td{border-right:1px solid #99948e; border-bottom:1px solid #99948e;}
+		#secretWrapper table tbody td{padding:8px 20px; font-size:12px;}
+		#secretWrapper table tbody tr td a {color:#333; text-decoration:underline;}
+
+		#secretWrapper table tbody tr.ok th,
+		#secretWrapper table tbody tr.ok td{background:#9f9f95; color:#fff;}
+		#secretWrapper table tbody tr.ok td.dev{background:#9f9f95; color:#fff;}
+		#secretWrapper table tbody tr.ok td a{color:#fff;}
+
+		#secretWrapper table tbody tr.ok2 td{background:#c62b4a; color:#fff;}
+		#secretWrapper table tbody tr.ok2 td.dev {background:#c62b4a; color:#fff;}
+		#secretWrapper table tbody tr.ok2 td a{color:#fff;}
+
+		#secretWrapper table tbody tr.ok3 td{background:#6e58c6; color:#fff;}
+		#secretWrapper table tbody tr.ok3 td.dev {background:#a07fff; color:#333}
+		#secretWrapper table tbody tr.ok3 td a{color:#fff;}
+		#secretWrapper table tbody tr.del td{background:#999; color:#333;}
+
+		.caution {background-color:lightblue;}
+
+		body *{margin:0; padding:0;}
+		#secretWrapper .depth_info { width:98%; position:absolute; top:83px;}
+		#secretWrapper .depth_info.fix { position:fixed; top:0;}
+
+		.ia_guide {padding:30px 0 0;}
+		.ia_guide strong {font-size:20px;}
+		.ia_guide div {padding:20px 0 20px 30px; color:#fff; margin:20px 0 0;}
+		.ia_guide .ok {background-color:#9f9f95;}
+		.ia_guide .ok3 {background-color:#c62b4a;}
+		.ia_guide .ok2 {background-color:#6e58c6;}
+
+		.last_update {position:absolute; right:1%; top:40px;}
+	</style>
+	<script src="javascripts/jquery-1.8.2.min.js"></script>
+	<script>
+		$(function () {
+			var $table = $("table");
+			var $tbody = $table.find("tbody");
+			$table.each(function () {
+				var _this = $(this);
+				var divisionDepth = _this.find("tbody > tr");
+				var divisionLength = divisionDepth.length;
+
+				divisionDepth.eq(0).find("td").eq(0).attr("rowspan", divisionLength);
+			});
+
+			var $depthInfo = $(".depth_info");
+			$(window).scroll(function () {
+				var st = $(this).scrollTop();
+				if(st > 83){
+					$depthInfo.addClass("fix");
+				} else {
+					$depthInfo.removeClass("fix");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+<div id="secretWrapper">
+	<table class="depth_info">
+		<colgroup>
+			<col width="10%">
+			<col width="15%">
+			<col width="15%">
+			<col width="20%">
+			<col width="10%">
+			<col width="10%">
+			<col>
+		</colgroup>
+		<thead>
+		<tr class="title1">
+			<th colspan="4">DEPTH</th>
+			<th colspan="2">코딩현황</th>
+			<th>개발현황</th>
+		</tr>
+		<tr class="title2">
+			<th></th>
+			<th>1depth</th>
+			<th>2depth</th>
+			<th>3depth</th>
+			<th colspan="2">마크업 파일명</th>
+			<th>작업처리</th>
+		</tr>
+		<tr class="title3">
+			<th>구분</th>
+			<th>Label</th>
+			<th>Label</th>
+			<th>Label</th>
+			<th>Folder</th>
+			<th>File</th>
+			<th>상태</th>
+		</tr>
+		</thead>
+	</table>
+
+	<h1>효성굿스프링스 / PC</h1>
+	<p class="last_update">최종 수정 날짜 : time19-12-27</p>
+
+	<div class="ia_guide">
+		<strong>테이블에 색에 따른 진행 상태 분류</strong>
+		<div class="ok">퍼블 완료 - 디자인/기획 컨펌 나기전</div>
+		<div class="ok2">퍼블 완료됬지만 - 디자인/기획에서 수정/변경이 있어서 차후 수정이 필요한 페이지</div>
+		<div class="ok3">퍼블 완료 - 디자인/기획까지 컨펌 완료</div>
+	</div>
+
+	<!-- 메인 -->
+	<h2>Main</h2>
+	<table>
+		<colgroup>
+			<col width="10%">
+			<col width="15%">
+			<col width="15%">
+			<col width="20%">
+			<col width="10%">
+			<col width="10%">
+			<col>
+		</colgroup>
+		<tbody>
+		<tr class="ok3">
+			<td>Main</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>main</td>
+			<td><a href="./html/main/main.html" target="_blank">main</a></td>
+			<td class="">퍼블 완료 / 내부 컨펌중</td>
+		</tr>
+		</tbody>
+	</table>
+	<!-- //메인 -->
+
+	<!--Applications-->
+	<h2>Applications</h2>
+	<table>
+		<colgroup>
+			<col width="10%">
+			<col width="15%">
+			<col width="15%">
+			<col width="20%">
+			<col width="10%">
+			<col width="10%">
+			<col>
+		</colgroup>
+		<tbody>
+		<tr class="ok2">
+			<td>Applications</td>
+			<td>Oil & Gas</td>
+			<td></td>
+			<td></td>
+			<td rowspan="5">applications</td>
+			<td><a href="./html/applications/oil_gas.html" target="_blank">oil_gas</a></td>
+			<td>퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>Power</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/applications/power.html" target="_blank">power</a></td>
+			<td>퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>Water</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/applications/water.html" target="_blank">water</a></td>
+			<td>퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>Buildings</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/applications/buildings.html" target="_blank">buildings</a></td>
+			<td>퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>General Industry</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/applications/general_industry.html" target="_blank">general_industry</a></td>
+			<td>퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		</tbody>
+	</table>
+	<!--//Applications-->
+
+	<!--Products-->
+	<h2>Products</h2>
+	<table>
+		<colgroup>
+			<col width="10%">
+			<col width="15%">
+			<col width="15%">
+			<col width="20%">
+			<col width="10%">
+			<col width="10%">
+			<col>
+		</colgroup>
+		<tbody>
+		<tr class="ok2">
+			<td>Products</td>
+			<td>Between Bearings</td>
+			<td></td>
+			<td></td>
+			<td rowspan="3">products</td>
+			<td><a href="./html/products/between_bearings.html" target="_blank">between_bearings</a></td>
+			<td>퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>Vertically suspended</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/products/vertically_suspended.html" target="_blank">vertically_suspended</a></td>
+			<td>퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>Overhung</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/products/overhung.html" target="_blank">overhung</a></td>
+			<td>퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		</tbody>
+	</table>
+	<!--//Products-->
+
+	<!--서비스 & 지원기술-->
+	<h2>서비스 & 지원기술</h2>
+	<table>
+		<colgroup>
+			<col width="10%">
+			<col width="15%">
+			<col width="15%">
+			<col width="20%">
+			<col width="10%">
+			<col width="10%">
+			<col>
+		</colgroup>
+		<tbody>
+		<tr class="ok2">
+			<td>서비스 & 지원기술</td>
+			<td>A/S 센터 소개</td>
+			<td>write</td>
+			<td></td>
+			<td rowspan="6">service</td>
+			<td><a href="./html/service/contact_us.html" target="_blank">contact_us</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+
+		<tr class="ok">
+			<td>AM 사업</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/service/am_services.html" target="_blank">am_services</a></td>
+			<td class="">퍼블 완료 / 내부 컨펌중</td>
+		</tr>
+		<tr class="ok">
+			<td>펌프 고효율화 사업</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/service/pump_energy_saving_services.html" target="_blank">pump_energy_saving_services</a></td>
+			<td class="">퍼블 완료 / 내부 컨펌중</td>
+		</tr>
+		<tr class="ok">
+			<td>펌프아카데미</td>
+			<td>아카데미 소개</td>
+			<td></td>
+			<td><a href="./html/service/pump_academy.html" target="_blank">pump_academy</a></td>
+			<td class="">퍼블 완료 / 내부 컨펌중</td>
+		</tr>
+		</tbody>
+	</table>
+	<!--//서비스 & 지원기술-->
+
+	<!--홍보센터-->
+	<h2>홍보센터</h2>
+	<table>
+		<colgroup>
+			<col width="10%">
+			<col width="15%">
+			<col width="15%">
+			<col width="20%">
+			<col width="10%">
+			<col width="10%">
+			<col>
+		</colgroup>
+		<tbody>
+		<tr class="ok2">
+			<td>홍보센터</td>
+			<td rowspan="3">뉴스센터</td>
+			<td rowspan="2">List</td>
+			<td></td>
+			<td rowspan="9">pr</td>
+			<td><a href="html/pr/pr_news_list.html" target="_blank">pr_news_list</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>검색결과없음</td>
+			<td><a href="html/pr/pr_news_list_no_result.html" target="_blank">pr_news_list_no_result</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>View </td>
+			<td></td>
+			<td><a href="html/pr/pr_news_view.html" target="_blank">pr_news_view</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>홍보자료</td>
+			<td></td>
+			<td></td>
+			<td><a href="html/pr/pr_materials_list.html" target="_blank">pr_materials_list</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td rowspan="3">지속가능경영</td>
+			<td>그린경영</td>
+			<td></td>
+			<td><a href="html/pr/environment_management.html" target="_blank">environment_management</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>나눔경영</td>
+			<td></td>
+			<td><a href="html/pr/sharing-based_management.html" target="_blank">sharing-based_management</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>윤리경영</td>
+			<td></td>
+			<td><a href="html/pr/ethics_management.html" target="_blank">ethics_management</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		</tbody>
+	</table>
+	<!--//홍보센터-->
+
+	<!--회사소개-->
+	<h2>회사소개</h2>
+	<table>
+		<colgroup>
+			<col width="10%">
+			<col width="15%">
+			<col width="15%">
+			<col width="20%">
+			<col width="10%">
+			<col width="10%">
+			<col>
+		</colgroup>
+		<tbody>
+		<tr class="ok">
+			<td>회사소개</td>
+			<td>회사개요</td>
+			<td></td>
+			<td></td>
+			<td rowspan="4">about</td>
+			<td><a href="html/about/overview.html" target="_blank">overview</a></td>
+			<td class="">퍼블 완료 / 내부 컨펌중</td>
+		</tr>
+		<tr class="ok">
+			<td>회사연혁</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/about/history.html" target="_blank">history</a></td>
+			<td class="">퍼블 완료 / 내부 컨펌중</td>
+		</tr>
+		<tr class="ok2">
+			<td>Hyosung Way</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/about/hyosung_way.html" target="_blank">hyosung_way</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>사업장안내</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/about/global_network.html" target="_blank">global_network</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		</tbody>
+	</table>
+	<!--//회사소개-->
+
+	<!--etc-->
+	<h2>etc</h2>
+	<table>
+		<colgroup>
+			<col width="10%">
+			<col width="15%">
+			<col width="15%">
+			<col width="20%">
+			<col width="10%">
+			<col width="10%">
+			<col>
+		</colgroup>
+		<tbody>
+		<tr class="ok2">
+			<td>etc</td>
+			<td>개인정보처리방침</td>
+			<td></td>
+			<td></td>
+			<td rowspan="3">etc</td>
+			<td><a href="./html/etc/privacy_policy.html" target="_blank">privacy_policy</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>법적 고지</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/etc/legal_notice.html" target="_blank">legal_notice</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		<tr class="ok2">
+			<td>no page</td>
+			<td></td>
+			<td></td>
+			<td><a href="./html/common/notice.html" target="_blank">notice</a></td>
+			<td class="">퍼블 완료 / 컨펌 완료</td>
+		</tr>
+		</tbody>
+	</table>
+	<!--//etc-->
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
