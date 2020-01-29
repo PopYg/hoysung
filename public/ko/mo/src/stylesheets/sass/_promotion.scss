@@ -6,8 +6,8 @@
         fieldset {
             @extend %clearfix;
             select {
-                width:27%; height:42px; float:left; position:relative; border-bottom:1px solid $gray4; font-size:14px; padding:0 0 0 10px;
-                background:url(../../images/common/select_icon.gif) right 10px top 24px no-repeat;
+                width:27%; height:42px; float:left; position:relative; border-bottom:1px solid $gray4; font-size:14px; padding:0 0 0 5px;
+                background:url(../../images/common/select_icon.gif) right 5px top 16px no-repeat;
             }
             .search_wrap {
                 width:70%; float:left; margin:0 0 0 3%;
@@ -126,25 +126,6 @@
     }
 }
 
-//지속가능경영 - 텝
-.promotion_tab {
-    height:50px; text-align:center; font-size:14px;
-    ul {
-        margin:0 0 0 2px;
-        @extend %clearfix;
-    }
-    li {
-        width:33.3%; float:left; margin:0 0 0 -1px;
-        &:first-child {margin:0;}
-    }
-    a {
-        width:100%; height:50px; line-height:50px; color:$gray2; display:block; position:relative;
-        @include borderSet(1px, solid, $gray4);
-        @include boxSizing;
-        &.active {background-color:$violet; color:$white; border-color:$violet; z-index:1;}
-    }
-}
-
 //지속가능경영 - 컨텐츠 타이틀
 .ethical_tit {
     padding:35px 0 0;
@@ -159,7 +140,6 @@
 //지속가능경영 - 그린경영
 #contentsWrap.ethical_green {
     padding:0 !important;
-    .promotion_tab {padding:0 25px;}
     .green_contents {
         padding:0 25px 50px 25px;
         .safety_wrap {

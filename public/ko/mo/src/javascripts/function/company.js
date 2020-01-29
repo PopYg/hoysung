@@ -21,4 +21,38 @@ function companyJS(){
             }
         });
     });
+
+    //드롭다운 탭
+    var $promotionTab = $(".promotion_tab"),
+        $tabBtn = $promotionTab.find("> button"),
+        $tabSelect = $tabBtn.siblings("ul"),
+        $selectBtn = $tabSelect.find("button");
+    var $historyBox = $(".history_box section");
+
+    var tabH = $tabSelect.innerHeight() + 42;
+
+    $tabBtn.click(function () {
+        var _this = $(this);
+        if(!$tabBtn.hasClass("active")){
+            _this.addClass("active");
+            TweenMax.to($promotionTab, .3, {height:tabH});
+        } else {
+            _this.removeClass("active");
+            TweenMax.to($promotionTab, .3, {height:42});
+        }
+    });
+
+    $selectBtn.click(function () {
+        var _this = $(this);
+        var _index = _this.parent().index();
+        $tabBtn.text(_this.text());
+        $tabBtn.removeClass("active");
+        TweenMax.to($promotionTab, .3, {height:42});
+
+        $selectBtn.removeClass("active");
+        _this.addClass("active");
+
+        $historyBox.css({display: "none"});
+        $historyBox.eq(_index).css({display: "block"});
+    });
 }

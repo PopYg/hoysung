@@ -23,11 +23,8 @@ $window.load(function () {
     layout();
     scrollEvent();
     locationJS();
-    object();
     applicationsJS();
     companyJS();
-    productsJS();
     promotionJS();
-    serviceJS();
     etcJS();
 });

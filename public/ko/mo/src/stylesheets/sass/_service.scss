@@ -15,10 +15,247 @@
         dt {padding:12px 0 0; font-size:14px;}
         dd {padding:12px 0 0; font-size:24px;}
     }
-    .as_input_box01 {
+}
 
+//서비스 > AM 사업
+#contentsWrap.am_business {
+    padding:0 25px 50px 25px !important;
+    .am_wrap {
+        .am_explanation {
+            .am_img {
+                height:210px; border-radius:0 50px 0 0; background-image:url(../../images/service/am_img01.jpg);
+                @include backgroundSoltC;
+            }
+            p {padding:20px 0 0; font-size:14px; line-height:24px; color:$gray2;}
+        }
+        .am_introduction {
+            margin:40px 0 0; background-color:#f4f2f9; padding:0 0 35px;
+            @extend %clearfix;
+            ul {
+                li {
+                    width:50%; position:relative; float:left; padding:90px 0 0; margin:35px 0 0; text-align:center;
+                    @include backgroundSoltC(50%, 0, no-repeat, auto 70px);
+                    &:nth-of-type(1) {background-image:url(../../images/service/am_icon1.gif);}
+                    &:nth-of-type(2) {background-image:url(../../images/service/am_icon2.gif);}
+                    &:nth-of-type(3) {background-image:url(../../images/service/am_icon3.gif);}
+                    strong {font-size:14px; font-weight:$light;}
+                }
+            }
+        }
+        .business_field {
+            margin:40px 0 0;
+            h5 {font-size:24px;}
+            .field_wrap {
+                margin:28px 0 0;
+                article {
+                    padding:45px 0 0;
+                    &:nth-of-type(1) {
+                        padding:0;
+                        div {background-image:url(../../images/service/am_section_img01.jpg);}
+                    }
+                    &:nth-of-type(2) div {background-image:url(../../images/service/am_section_img02.jpg);}
+                    &:nth-of-type(3) div {background-image:url(../../images/service/am_section_img03.jpg);}
+                    div {
+                        height:205px;
+                        @include backgroundSoltC;
+                    }
+                    strong {display:block; font-weight:$light; padding:29px 0 12px; font-size:18px;}
+                    p {line-height:24px; font-size:14px; color:$gray2;}
+                }
+            }
+        }
     }
 }
+
+//서비스 > 펌프 고효율화 사업
+#contentsWrap.pump_energy_saving_business {
+    padding:0 25px 60px !important;
+    .pump_energy_saving_business_wrap {
+        padding:20px 0 0;
+        section {
+            padding:40px 0 0;
+            &:first-child {padding:0;}
+            h5 {font-size:24px;}
+            p {font-size:14px; line-height:24px; color:$gray2; padding:15px 0 0;}
+            em {color:$violet; font-weight:$bold; font-size:18px; display:block;}
+            .box_wrap {
+                padding:15px 0 0;
+                .box {
+                    width:100%; padding:35px 0; border:1px solid $gray4; text-align:center; margin:10px 0 0;
+                    @include boxSizing;
+                    &:first-child {margin:0;}
+                    p {padding:10px 0 0; font-size:14px;}
+                    strong {display:block; padding:25px 0 0; font-weight:$light; font-size:18px;}
+                    .img_wrap {
+                        img {width:65%;}
+                    }
+                }
+            }
+        }
+        //대상 펌프
+        .target_pump {
+            .list_wrap {
+                padding:25px 0 0;
+                .list {
+                    position:relative; padding:25px 0 0 27px;
+                    &:first-child {padding:0 0 0 27px;}
+                    strong {
+                        position:relative; font-size:18px; font-weight:$light; line-height:24px;
+                        &:before {
+                            width:21px; height:18px; display:inline-block; content:''; position:absolute; left:-27px; top:0; background-image:url(../../images/common/checkbox.gif);
+                            @include backgroundSoltC;
+                        }
+                    }
+                    p {padding:5px 0 0; font-size:14px;}
+                }
+            }
+        }
+        //사업 제안 절차
+        .business_proposition {
+            article {
+                position:relative; padding:55px 0 0;
+                &:nth-of-type(1) {
+                    padding:20px 0 0;
+                    .img_box {background-image:url(../../images/service/pump_energy_saving_business_img04.jpg);}
+                }
+                &:nth-of-type(2) {
+                    .img_box {background-image:url(../../images/service/pump_energy_saving_business_img05.jpg);}
+                }
+                &:nth-of-type(3) {
+                    &:before {display:none;}
+                    .img_box {background-image:url(../../images/service/pump_energy_saving_business_img06.jpg);}
+                }
+                .img_box {
+                    height:190px;
+                    @include backgroundSoltC;
+                }
+                &:before {
+                    position:absolute; content:''; width:24px; height:24px; left:50%; margin:0 0 0 -12px; bottom:-25px; background-image:url(../../images/common/next_icon.gif);
+                    @include backgroundSoltC;
+                }
+            }
+            .txt_wrap {
+                width:calc(100% - 30px); background-color:$white; margin:-30px 0 0 15px; padding:20px 0; text-align:center;
+                strong {font-size:18px;}
+                p {font-size:14px; padding:10px 0 0;}
+            }
+        }
+    }
+}
+
+//서비스 > 펌프 아카데미
+#contentsWrap.pump_academy {
+    .pump_wrap {
+        p {color:$gray2;}
+        .pump_explanation {
+            margin:15px 0 0;
+            .img_wrap {
+                height:250px; border-radius:0 50px 0 0; background-image:url(../../images/service/pump_img01.jpg);
+                @include backgroundSoltC(50%, 0);
+            }
+            p {padding:15px 0 0; font-size:14px; line-height:24px; color:$gray2;}
+        }
+        .table_box {
+            margin:25px 0 0; border-top:2px solid $black;
+            article {
+                border-top:1px solid $gray4;
+                &:first-child {border:0;}
+                h5 {font-size:24px; padding:35px 0 0;}
+                //교육 과정
+                &.process_wrap {
+                    .text_box {
+                        strong {
+                            padding:25px 0 20px;
+                            &:first-child {padding:0 0 27px;}
+                        }
+                        p {padding:0;}
+                    }
+                }
+                //신청대상
+                &.target_wrap {
+                    .text_box p {padding:0;}
+                }
+                // 교육 일정 및 장소
+                &.place_wrap {
+                    .text_box {
+                        .caution {
+                            padding:0 0 0 15px; font-size:14px; line-height:24px; color:$gray2; position:relative;
+                            &:before {content:"※"; position:absolute; left:0;}
+                        }
+                        p {padding:0;}
+                    }
+                    .map_wrap {
+                        height:190px; margin:25px 0 0; background-image:url(../../images/service/map_img.jpg);
+                        @include backgroundSoltC;
+                    }
+                }
+                // 신청 방법
+                &.application_wrap {
+                    .text_box{
+                        p:first-child {
+                            padding:0 0 14px;
+                            &:before {display:none;}
+                        }
+                    }
+                }
+                //교육담당자
+                &.education_wrap {
+                    p {
+                        margin:20px 0 0;
+                        &:first-child {margin:0;}
+                    }
+                    a {
+                        color:$violet; display:block; line-height:14px; margin:10px 0 0; padding:0 0 0 25px; background-image:url(../../images/service/letter_icon.gif);
+                        @include backgroundSoltC(0, 50%, no-repeat, auto 80%);
+                    }
+                }
+                //공통
+                .text_box {
+                    padding:20px 0 35px;
+                    &.p_wrap {
+                        p:before {
+                            width:2px; height:2px; display:inline-block; content:""; background-color:$gray2; position:absolute; top:10px; left:0;
+                            @include borderRadius(2px);
+                        }
+                    }
+                    p {font-size:14px; line-height:24px; position:relative; padding:0 0 0 12px;}
+                    strong {display:block; font-size:18px; padding:30px 0 15px;}
+                    .icon_wrap {
+                        li {
+                            height:65px; padding:0 0 0 80px; line-height:65px; margin:10px 0 0; font-size:14px;
+                            @include backgroundSoltC(0, 0, no-repeat, auto 65px);
+                            &:nth-of-type(1) {background-image:url(../../images/service/pump_icon1.gif); margin:0;}
+                            &:nth-of-type(2) {background-image:url(../../images/service/pump_icon2.gif);}
+                            &:nth-of-type(3) {background-image:url(../../images/service/pump_icon3.gif);}
+                            &:nth-of-type(4) {background-image:url(../../images/service/pump_icon4.gif);}
+                            &:nth-of-type(5) {background-image:url(../../images/service/pump_icon5.gif);}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

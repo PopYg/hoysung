@@ -39,19 +39,19 @@ function layout() {
     //footer
     var $familySite = $("#familySite");
     var $familyBtn = $familySite.find("button");
-    var $familySiteH = $familySite.find('div').height() + 41;
+    var $familySiteH = $familySite.find('div').height() + 43;
     $familyBtn.click(function () {
-        if(!$familySite.hasClass("on")){
+        if(!$familySite.hasClass("active")){
             TweenMax.to($familySite, .2, {height:$familySiteH});
-            $familySite.addClass("on");
+            $familySite.addClass("active");
         } else {
-            TweenMax.to($familySite, .2, {height: 41});
-            $familySite.removeClass("on");
+            TweenMax.to($familySite, .2, {height: 43});
+            $familySite.removeClass("active");
         }
     });
     $familySite.mouseleave(function () {
-        TweenMax.to($familySite, .2, {height: 41});
-        $familySite.removeClass("on");
+        TweenMax.to($familySite, .2, {height: 43});
+        $familySite.removeClass("active");
     });
 }
 

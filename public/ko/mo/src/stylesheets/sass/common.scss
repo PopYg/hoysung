@@ -39,7 +39,7 @@ img { vertical-align:top; image-rendering:-webkit-optimize-contrast;}
 caption { width:1px; height:1px; overflow:hidden; margin:-1px;}
 
 //퍼블 가이드용
-.guide_line {
+/*.guide_line {
     div {
         &:after,
         &:before {width:1px; height:100%; display:block; content:""; position:fixed; background-color:$gray1; z-index:1000; opacity:0.3;}
@@ -51,7 +51,7 @@ caption { width:1px; height:1px; overflow:hidden; margin:-1px;}
             &:before {left:50%;}
         }
     }
-}
+}*/
 
 //히든 텍스트
 .hidden-txt,
@@ -62,6 +62,7 @@ legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; hei
     #subVisual {
         height:240px; margin:0 0 0 25px; position:relative;
         @include backgroundSoltC(50%, 0);
+        &.applications_visual {background-image:url(../../images/applications/sub_visual.jpg);}
         &.company_visual {background-image:url(../../images/company/sub_visual.jpg);}
         &.promotion_visual {background-image:url(../../images/promotion/sub_visual.jpg);}
         &.service_visual {background-image:url(../../images/service/sub_visual.jpg);}
@@ -74,9 +75,8 @@ legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; hei
         &:before {width:44.5px; height:44px; background-image:url(../../images/common/sub_visual_mask_left.png); -webkit-background-size:44.5px 44px; background-size:44.5px 44px; left:0; top:60px;}
         &:after {width:143px; height:26.5px; background-image:url(../../images/common/sub_visual_mask_right.png); -webkit-background-size:143px 26.5px; background-size:143px 26.5px; right:0; bottom:0;}
         .visual_txt {
-            padding:110px 25px 0 45px; color:$white;
-            h3 {font-size:30px; font-family:$slab; font-weight:$light;}
-            p {font-size:12px; line-height:16px; padding:15px 0 0;}
+            height:180px; padding:60px 25px 0 45px; color:$white; display:table;
+            h3 {font-size:30px; font-family:$slab; font-weight:$light; display:table-cell; vertical-align:middle; line-height:36px;}
         }
     }
 }
@@ -152,9 +152,9 @@ legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; hei
     position:relative;
     #contentsWrap {
         padding:0 25px 70px 25px;
-        #subTitle {padding:30px 0;}
+        #subTitle {padding:25px 25px;}
         h4 {
-            &.sub_tit {font-size:30px; font-weight:$bold; text-align:center;}
+            &.sub_tit {font-size:30px; line-height:36px; font-weight:$bold; text-align:center;}
             &.sub_tit2 {
                 font-size:30px; font-weight:$light; padding:0 0 0 45px; line-height:45px;
                 span {font-size:36px; font-family:$slab; text-decoration:underline;}
@@ -277,21 +277,75 @@ legend {overflow:hidden; display:inline-block; text-indent:-9999px; width:0; hei
     }
 }
 
-//팝업 기본
-#modalPopup {
-    width:100%; height:100%; position:fixed; background-color:rgba(0, 0, 0, 0.4); z-index:150; overflow-y:scroll; top:0; left:0; display:none;
-    @include opacity(0);
-    .popup_container {
-        width:1180px; margin:100px auto; background-color:$white; position:relative;
-        .popup_close {
-            width:58px; height:58px; position:absolute; top:0; right:-68px; text-indent:-9999px; overflow:hidden; background:url(../../images/icon/popup_close.png) 50% 50% no-repeat;
-            @include borderSet(1px, solid, $white);
-            @include transition;
-            @include backgroundSolt;
-            &:hover {border-color:$violet; background-color:$violet;}
+//드롭다운 리스트 셀렉터
+.dropdown_wrap {height:42px; position:relative; z-index:10;}
+.promotion_tab {
+    width:100%; height:42px; background-color:$black; overflow:hidden;
+    > button {
+        width:100%; color:$white; padding:0 15px; line-height:42px; background-color:$violet; text-align:left; font-size:14px; position:relative;
+        &:before,
+        &:after {
+            width:10px; height:1px; display:block; content:""; background-color:$white; position:absolute; top:20px;
+            @include transition(transform, .3s);
+        }
+        &:before {
+            right:10px;
+            @include rotate(-45);
+        }
+        &:after {
+            right:17px;
+            @include rotate(45);
+        }
+        &.active {
+            &:before {@include rotate(45)}
+            &:after {@include rotate(-45)}
         }
     }
-    .popup_wrap {padding:55px 60px 0; display:none;}
+    ul {
+        padding:20px 0;
+        li {
+            padding:25px 15px 0;
+            &:first-child {padding:0 15px;}
+        }
+        button,
+        a {
+            color:$white; text-align:left; display:inline-block; font-size:14px; position:relative;
+            &:after {width:100%; height:1px; background-color:$white; display:none; content:""; position:absolute; bottom:-2px; left:0;}
+            &.active:after {display:block;}
+        }
+    }
+}
+
+//하단 컨텐트 어스
+.business_card {
+    padding:50px 25px 40px; background-color:$gray5; text-align:center;
+    strong {font-size:24px; display:block;}
+    img {width:100%; max-width:500px; margin:15px 0 0;}
+}
+
+//팝업 기본
+#modalPopup {
+    width:100%; height:100%; position:fixed; background-color:rgba(0, 0, 0, 0.4); z-index:150; overflow-y:auto; top:0; left:0; display:none;
+    @include opacity(0);
+    .popup_container {
+        width:700px; background-color:$white; position:relative; left:50%; top:50%; margin:-355px 0 0 -350px;
+        .popup_close {
+            width:35px; height:35px; position:absolute; top:0; right:-50px; text-indent:-9999px;
+            @include transition;
+            &:before,
+            &:after {width:51px; height:1px; display:block; content:""; background-color:$white; position:absolute; left:-7px;}
+            &:before {
+                top:17px;
+                @include rotate(45);
+            }
+            &:after {
+                bottom:17px;
+                @include rotate(-45)
+            }
+            &:hover,
+            &:focus {@include rotate(90);}
+        }
+    }
 }
 
 

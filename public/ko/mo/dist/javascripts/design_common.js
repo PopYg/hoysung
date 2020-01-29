@@ -23,12 +23,9 @@ $window.load(function () {
     layout();
     scrollEvent();
     locationJS();
-    object();
     applicationsJS();
     companyJS();
-    productsJS();
     promotionJS();
-    serviceJS();
     etcJS();
 });
 function applicationsJS(){
@@ -56,6 +53,40 @@ function companyJS(){
                 $locationLi.removeClass("active");
             }
         });
+    });
+
+    //드롭다운 탭
+    var $promotionTab = $(".promotion_tab"),
+        $tabBtn = $promotionTab.find("> button"),
+        $tabSelect = $tabBtn.siblings("ul"),
+        $selectBtn = $tabSelect.find("button");
+    var $historyBox = $(".history_box section");
+
+    var tabH = $tabSelect.innerHeight() + 42;
+
+    $tabBtn.click(function () {
+        var _this = $(this);
+        if(!$tabBtn.hasClass("active")){
+            _this.addClass("active");
+            TweenMax.to($promotionTab, .3, {height:tabH});
+        } else {
+            _this.removeClass("active");
+            TweenMax.to($promotionTab, .3, {height:42});
+        }
+    });
+
+    $selectBtn.click(function () {
+        var _this = $(this);
+        var _index = _this.parent().index();
+        $tabBtn.text(_this.text());
+        $tabBtn.removeClass("active");
+        TweenMax.to($promotionTab, .3, {height:42});
+
+        $selectBtn.removeClass("active");
+        _this.addClass("active");
+
+        $historyBox.css({display: "none"});
+        $historyBox.eq(_index).css({display: "block"});
     });
 }
 function etcJS(){
@@ -116,19 +147,19 @@ function layout() {
     //footer
     var $familySite = $("#familySite");
     var $familyBtn = $familySite.find("button");
-    var $familySiteH = $familySite.find('div').height() + 41;
+    var $familySiteH = $familySite.find('div').height() + 43;
     $familyBtn.click(function () {
-        if(!$familySite.hasClass("on")){
+        if(!$familySite.hasClass("active")){
             TweenMax.to($familySite, .2, {height:$familySiteH});
-            $familySite.addClass("on");
+            $familySite.addClass("active");
         } else {
-            TweenMax.to($familySite, .2, {height: 41});
-            $familySite.removeClass("on");
+            TweenMax.to($familySite, .2, {height: 43});
+            $familySite.removeClass("active");
         }
     });
     $familySite.mouseleave(function () {
-        TweenMax.to($familySite, .2, {height: 41});
-        $familySite.removeClass("on");
+        TweenMax.to($familySite, .2, {height: 43});
+        $familySite.removeClass("active");
     });
 }
 
@@ -172,290 +203,25 @@ function locationJS(){
     });
 }
 function main() {
-    //mainVisual
-    var $mainVisual = $("#mainVisual");
-    var $visualImg = $mainVisual.find(".visual_img li"),
-        $visualTxt = $mainVisual.find(".visual_txt li");
-    var _visualLength = $visualImg.length;
+    var $container = $("#container");
+    var $mainSolution = $container.find(".main_solutions"),
+        $solutionsImg = $mainSolution.find(".img_wrap div"),
+        $solutionTxt = $mainSolution.find(".txt_wrap .txt_box"),
+        $solutionBtn = $mainSolution.find("button");
 
-    //인디게이터
-    var $mainIndi = $("#mainIndi"),
-        $indiBtn = $mainIndi.find("button");
-    var $visualController = $("#visualController");
+    var _solutionIndex = 0;
+    $solutionBtn.click(function () {
+        _solutionIndex++;
+        _solutionIndex = _solutionIndex % 2;
+        solutionRolling(_solutionIndex);
+    });
+    function solutionRolling(_index){
+        TweenMax.to($solutionsImg, .3, {opacity:0});
+        TweenMax.to($solutionsImg.eq(_index), .3, {opacity:1});
 
-    var zIndexPrev = 0;
-    var zIndexNext = 1;
-    var visualDuration = 1;
-
-    //비쥬얼 갯수 체크
-    /*for(var i=0; i<_visualLength-1; i++){
-        $mainIndi.append("<li><button type='button'><span></span></button></li>");
+        $solutionTxt.css({display:"none"})
+        $solutionTxt.eq(_index).css({display:"block"})
     }
-    if(_visualLength <= 1){
-        $mainIndi.hide();
-    }*/
-
-    //비쥬얼 모션
-    var visualCrr = {};
-    Object.defineProperty(visualCrr, 'number', {
-        get: function () {
-            return this.num || 0;
-        },
-        set: function (_index) {
-            _index = _index % _visualLength;
-            if (!TweenMax.isTweening($visualImg)) {
-                if(visualCrr.number < _index){
-                    TweenMax.fromTo($visualImg, visualDuration + 0.2,
-                        {zIndex: zIndexPrev, right: "auto", left: 0},
-                        {width: "0%", ease: Expo.easeOut}
-                    );
-                    TweenMax.fromTo($visualImg.eq(_index), visualDuration,
-                        {zIndex: zIndexNext, left: "auto", right: 0},
-                        {width: "100%", ease: Expo.easeOut}
-                    );
-
-                    TweenMax.to($visualTxt.find(".tit,.txt,a"), visualDuration,
-                        {x:-30, opacity:0, display:"none", ease:Expo.easeOut}
-                    );
-                    TweenMax.staggerFromTo($visualTxt.eq(_index).find("p,a"), visualDuration,
-                        {x:30},
-                        {x:0, opacity:1, display:"block", ease:Expo.easeOut}, .1
-                    );
-                } else {
-                    TweenMax.fromTo($visualImg, visualDuration + 0.2,
-                        {zIndex: zIndexPrev, left: "auto", right: 0},
-                        {width: "0%", ease:Expo.easeOut}
-                    );
-                    TweenMax.fromTo($visualImg.eq(_index), visualDuration,
-                        {zIndex: zIndexNext, right: "auto", left: 0},
-                        {width: "100%", ease:Expo.easeOut}
-                    );
-
-                    TweenMax.to($visualTxt.find("p,a"), visualDuration,
-                        {x:30, opacity:0, display:"none", ease:Expo.easeOut}
-                    );
-                    TweenMax.staggerFromTo($visualTxt.eq(_index).find("p,a"), visualDuration,
-                        {x:-30},
-                        {x:0, opacity:1, display:"block", ease:Expo.easeOut}, .1
-                    );
-                }
-                $mainIndi.find("button").removeClass("active");
-                $mainIndi.find("li").eq(_index).find("button").addClass("active");
-                this.num = _index;
-            }
-        }
-    });
-
-    var interDuration = 4000;
-    var visualTimer = setInterval(visualSet, interDuration);
-
-    function visualSet(){
-        visualCrr.number = visualCrr.number+1;
-    }
-
-    $visualController.click(function () {
-        var _this = $(this);
-        if (_this.hasClass("stop")) {
-            clearInterval(visualTimer);
-            _this.removeClass("stop").addClass("play");
-        } else {
-            visualTimer = setInterval(visualSet, interDuration);
-            _this.removeClass("play").addClass("stop");
-        }
-    });
-
-    $indiBtn.click(function () {
-        var _this = $(this).parent();
-        var _index = _this.index();
-        if(!$visualController.hasClass("stop")){
-            clearInterval(visualTimer);
-            visualCrr.number = _index;
-        } else {
-            clearInterval(visualTimer);
-            visualTimer = setInterval(visualSet, interDuration);
-            visualCrr.number = _index;
-        }
-    });
-
-   /* $nextBtn.click(function () {
-        if (!TweenMax.isTweening($visualImg)) {
-            visualCrr.number++;
-            TweenMax.fromTo($visualImg, visualDuration+0.2,
-                {zIndex: zIndexPrev, right:"auto", left:0},
-                {width:"0%", ease:Expo.easeOut}
-            );
-            TweenMax.fromTo($visualImg.eq(visualCrr.number), visualDuration,
-                {zIndex: zIndexNext, left: "auto", right: 0},
-                {width: "100%", ease:Expo.easeOut}
-            );
-
-            TweenMax.to($visualTxt.find("h1,p,a"), visualDuration,
-                {x:-20, opacity:0, display:"none", ease:Expo.easeOut}
-            );
-            TweenMax.fromTo($visualTxt.eq(visualCrr.number).find("h1,p,a"), visualDuration,
-                {x:20},
-                {x:0, opacity:1, display:"block", ease:Expo.easeOut}
-            );
-        }
-    });
-    $prevBtn.click(function () {
-        if (!TweenMax.isTweening($visualImg)) {
-            visualCrr.number--;
-            TweenMax.fromTo($visualImg, visualDuration + 0.2,
-                {zIndex: zIndexPrev, left: "auto", right: 0},
-                {width: "0%", ease:Expo.easeOut}
-            );
-            TweenMax.fromTo($visualImg.eq(visualCrr.number), visualDuration,
-                {zIndex: zIndexNext, right: "auto", left: 0},
-                {width: "100%", ease:Expo.easeOut}
-            );
-
-            TweenMax.to($visualTxt.find("h1,p,a"), visualDuration,
-                {x:20, opacity:0, display:"none", ease:Expo.easeOut}
-            );
-            TweenMax.fromTo($visualTxt.eq(visualCrr.number).find("h1,p,a"), visualDuration,
-                {x:-20},
-                {x:0, opacity:1, display:"block", ease:Expo.easeOut}
-            );
-        }
-    });*/
-
-    //주요제품
-    var $productSlide = $("#productSlide");
-    //텍스트
-    var $txtSlide = $productSlide.find(".txt_slide article");
-    //이미지
-    var $productImg = $productSlide.find(".img_wrap div");
-    //이전, 다음 버튼
-    var $prevBtn = $productSlide.find("#prevBtn"),
-        $nextBtn = $productSlide.find("#nextBtn");
-    //카테고리
-    var $categoryLeft = $productSlide.find(".category_left"),
-        $categoryRight = $productSlide.find(".category_right"),
-        //리스트 버튼
-        $categoryBtn = $productSlide.find(".category_btn button"),
-        //리스트 불렛
-        $categoryDot = $productSlide.find(".active_dot");
-
-    var productCrr = {};
-    var _productLength = 10;
-
-    Object.defineProperty(productCrr, 'number', {
-        get: function () {
-            return this.num || 0;
-        },
-        set: function (_index) {
-            _index = _index % _productLength;
-            if(_index < 0){
-                _index = 9;
-            }
-            //이미지
-            TweenMax.to($productImg, 2, {opacity:0, ease:es_step});
-            TweenMax.to($productImg.eq(_index), .5, {opacity:1, ease:es_step});
-
-            //텍스트
-            TweenMax.to($txtSlide, 1, {opacity:0, display:"none", ease:es_step});
-            TweenMax.to($txtSlide.eq(_index), .2, {opacity:1, display:"block", ease:es_step});
-
-            //리스트
-            TweenMax.to($categoryLeft, .5, {width: _index * 118, ease: es_step});
-            TweenMax.to($categoryRight, .5, {width: 1180 - _index * 118 - 118, ease: es_step});
-
-            TweenMax.to($categoryDot, .5, {left: 118 * _index + 49, ease:es_step});
-            this.num = _index;
-        }
-    });
-    //다음 버튼
-    $nextBtn.click(function () {
-        productCrr.number++;
-    });
-    //이전 버튼
-    $prevBtn.click(function () {
-        productCrr.number--;
-    });
-    //리스트 버튼
-    $categoryBtn.click(function () {
-        var _this = $(this);
-        var _index = _this.parent().index();
-
-        productCrr.number = _index;
-    });
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function object(){
-    var $popup = $("#modalPopup");
-    var $popupOpen = $(".popup_open");
-    var $close = $(".popup_close");
-    var $popupWrap = $popup.find(".popup_wrap");
-
-    $popupOpen.click(function () {
-        var _this = $(this);
-        var _popUpName = _this.attr("id").replace("OpenBtn","");
-        $("html").addClass("no_scroll");
-        $("#"+_popUpName).show();
-        TweenMax.to($popup, .5, {opacity: 1, display: "block"});
-        TweenMax.fromTo($(".popup_container"), .5, {y: 50}, {y: 0, ease: es_step});
-    });
-
-    function noscroll(){
-        $("html").removeClass("no_scroll");
-        $popupWrap.hide();
-    }
-
-    $close.on("click", function () {
-        TweenMax.to($popup, .3, {opacity: 0, display: "none", ease: es_step, onComplete: noscroll});
-    });
-
-    //쿠키 정책 팝업
-    var $cookiePopup = $("#cookiePopup");
-    var $cookieBtn = $cookiePopup.find("button");
-
-    $cookieBtn.click(function () {
-        TweenMax.to($cookiePopup, .3, {y:70});
-    });
-}
-
-
-
-
-
-
-
-
-function productsJS(){
-
 }
 function promotionJS(){
     var $ethicalEthics = $(".ethical_ethics");
@@ -555,7 +321,3 @@ function scrollEvent(){
 
 
 
-
-function serviceJS(){
-
-}

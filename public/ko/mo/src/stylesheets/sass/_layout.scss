@@ -18,9 +18,8 @@ body.no_scroll {overflow:hidden;}
     width:100%; height:60px; position:absolute; top:0; left:0; z-index:110; padding:0 25px;
     @include boxSizing;
     &:before {
-        width:100%; height:140px; display:block; content:""; position:absolute; top:-80px; z-index:-1; background-color:$white; right:-15px;
+        width:100%; height:140px; display:block; content:""; position:absolute; top:-80px; z-index:-1; background-color:$white; right:0;
         -webkit-border-bottom-right-radius:250px 150px;
-        -moz-border-bottom-right-radius:250px 150px;
         border-bottom-right-radius:250px 150px;
     }
     h1 {
@@ -64,7 +63,7 @@ body.no_scroll {overflow:hidden;}
         padding:20px 0 0;
         @extend %clearfix;
         ol {
-            line-height:21px; float:right; padding:0 0 0 20px; background:url(../../images/layout/util_icon02.gif) 0 50% no-repeat; -webkit-background-size:21px; background-size:21px;
+            line-height:21px; float:right; padding:0 0 0 18px; background:url(../../images/layout/util_icon02.gif) 0 50% no-repeat; -webkit-background-size:21px; background-size:21px;
             @extend %clearfix;
         }
         li {float:left; margin:0 0 0 15px;}
@@ -121,9 +120,9 @@ body.no_scroll {overflow:hidden;}
 #gnbDimmed.dimmed {z-index:10;}
 //footer
 #footer {
-    padding:40px 25px; background-color:$gray1; position:relative;
+    padding:40px 25px 50px; background-color:$gray1; position:relative;
     &:before {width:96px; height:48px; display:block; content:""; position:absolute; background:url(../../images/layout/footer_mask.png) 50% 50% no-repeat; top:-48px; right:0;}
-    .footer_wrap {position:relative;}
+    .footer_wrap {position:relative; padding:0 0 70px;}
     .footer_info {
         color:$gray3; font-size:12px;
         .f_link {
@@ -147,7 +146,60 @@ body.no_scroll {overflow:hidden;}
                 }
             }
         }
-        .company_info {padding:15px 0 0; tel {color:$white;}}
+        .company_info {padding:15px 0 0;}
         .copyright {padding:10px 0 0;}
+    }
+    .f_nice_link {
+        width:150px; position:absolute; right:0; bottom:0;
+        img {width:100%;}
+    }
+    #familySite {
+        width:160px; height:43px; position:absolute; left:0; bottom:5px; background-color:$gray1; overflow:hidden; z-index:10; font-size:15px;
+        @include borderSet(1px, solid, $gray1);
+        border-bottom:0;
+        @include boxSizing;
+        @include transition(background-color, .2s);
+        &.active {
+            border-color:$gray3;
+            button {
+                background-color:#3e3e3e;
+                &:before {@include rotate(-45)}
+                &:after {@include rotate(45)}
+            }
+        }
+        button {
+            width:100%; height:43px; line-height:41px; padding:0 10px; text-align:left; color:$gray3; position:absolute; bottom:0; background-color:$gray1; font-size:15px;
+            border-bottom-width:1px; border-bottom-color:$gray3; border-bottom-style:solid;
+            @include transition;
+            &:before,
+            &:after {
+                width:10px; height:1px; display:block; content:""; background-color:$gray3; position:absolute; top:20px;
+                @include transition(transform, .3s);
+            }
+            &:before {
+                right:10px;
+                @include rotate(45);
+            }
+            &:after {
+                right:17px;
+                @include rotate(-45);
+            }
+        }
+        div {
+            width:100%; position:absolute; bottom:43px; padding:0 13px; border-bottom:1px solid $gray3; font-size:14px;
+            @include boxSizing;
+            ul {line-height:32px; padding:10px 0;}
+            li {
+                width:100%;
+                a {
+                    color:$gray3; position:relative;
+                    @include transition(color, .2s);
+                    &:after {
+                        width:0; height:1px; display:block; content:""; position:absolute; bottom:0; left:0; background-color:$white;
+                        @include transition(width, .2s);
+                    }
+                }
+            }
+        }
     }
 }

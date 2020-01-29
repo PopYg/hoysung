@@ -18,20 +18,6 @@ function main() {
         TweenMax.to($solutionTxt, .3, {opacity:0, display:"none"});
         TweenMax.to($solutionTxt.eq(_index), .3, {opacity:1, display:"block"});
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 

@@ -90,21 +90,6 @@ function companyJS(){
             }
         });
     });
-
-    //연혁
-    var $history = $(".history");
-    var $promotionTab = $history.find(".promotion_tab button");
-    var $historySec = $history.find(".history_box > section");
-
-    $promotionTab.on("click", function () {
-        var _this = $(this);
-        var _index = _this.parent().index();
-
-        $historySec.css({display:"none"});
-        $historySec.eq(_index).css({display:"block"});
-        $promotionTab.removeClass("active");
-        $promotionTab.eq(_index).addClass("active");
-    });
 }
 function etcJS(){
     var $utilTerms = $(".util_terms");
@@ -251,20 +236,6 @@ function main() {
         TweenMax.to($solutionTxt, .3, {opacity:0, display:"none"});
         TweenMax.to($solutionTxt.eq(_index), .3, {opacity:1, display:"block"});
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
